@@ -49,7 +49,29 @@ int main()
         // Step 4: Draw Contours
         cv::drawContours(frame, contours, -1, cv::Scalar(0, 0, 255), 2);
 
-        for()
+        for(size_t i = 0; i < contours.size(); i++)
+        {
+            // Compute contour area
+            double area = cv::contourArea(contours[i]);
+
+            // Ignore small contours (noise)
+            if(area < 500)
+                continue;
+
+            // Compute movements
+            cv::Moments m = cv::moments(contours[i]);
+
+            // Safety check (avoid divide by zero)
+            if (m.m00 == 0)
+                continue;
+
+            // Compute centroid
+            int cx = static_cast<int>(m.m10 / m.m00);
+            int cy = static_cast<int>(m.m01 / m.m00);
+
+            // Draw centroid
+            cv::circle(frame, cv:Point(cx, cy), 5)
+        }
 
         cv::imshow("Camera", frame);
 
