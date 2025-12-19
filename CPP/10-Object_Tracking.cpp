@@ -27,7 +27,14 @@ int main()
     // While loop for video each frame scanning
     while(true)
     {
+        // Take Single frame
         cap >> frame;
+
+        // Convert Frame into Grayscale
+        cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+
+        // 
+
     }
 
     
