@@ -70,7 +70,17 @@ int main()
             int cy = static_cast<int>(m.m01 / m.m00);
 
             // Draw centroid
-            cv::circle(frame, cv:Point(cx, cy), 5)
+            cv::circle(frame, cv::Point(cx, cy), 5, cv::Scalar(0, 255, 0), -1);
+
+            // Draw contours
+            cv:: drawContours(frame, contours, i, cv::Scalar(0, 0 ,255), 2);
+
+            // Show centroid coordinates
+            cv::putText(frame, "Cx:" + std::to_string(cx) + " Cy:" + std::to_string(cy),
+            cv::Point(cx + 10, cy - 10), 
+            cv::FONT_HERSHEY_SIMPLEX,
+            0.5, cv::Scalar(0, 255, 0), 
+            1);
         }
 
         cv::imshow("Camera", frame);
