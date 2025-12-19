@@ -27,7 +27,7 @@ int main()
 
         cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
 
-        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY);
+        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY_INV | cv::THRESH_OTSU | cv::THRESH_BINARY);
 
         cv::imshow("Grayscale", gray);
         cv::imshow("Binary", binary);
