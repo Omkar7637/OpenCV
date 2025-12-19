@@ -39,20 +39,20 @@ int main()
         //  - Format is numerator/denominator
         //
         "nvarguscamerasrc !" // Direct Interface to Nvidia driver | Uses ISP (Image Signal Processor) | Support: Auto exposure/Auto while balance/HDR (If supported)
-        "video/x-raw(memory:NVMM)," //   
+        "video/x-raw(memory:NVMM)," // NVIDIA Multimedia memory | Keeps frames in GPU memory | Avoides unnecssary memory Copies | Critical for: High FPS/Low Latency/ AI inference pipelines  
         "width=1920, height=1080, framerate=60/1 ! "
 
         // nvvidconv
         //  - NVIDIA hardware-acclerated video converter
         //  - Converts from NVMM memory format to understand system memory
         //  - Also handles color format conversion
-        "nvvidconv !"
+        "nvvidconv !" // Uses jetson hardware | Much faseter than videconvert | Converts: memory layout/Color formats/Resolution 
 
         // Video/x-raw, format=BGRx
         //  - Intermediate format
         //  - BGRx = BGR + unused alpha channel
         //  - Required because videoconvert works efficently with BGRx
-        "video/x-raw, format=BGRx !"
+        "video/x-raw, format=BGRx !" 
 
         // videoconverter
         //  - CPU-based colro format converter
