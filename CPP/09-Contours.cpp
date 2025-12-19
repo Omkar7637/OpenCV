@@ -3,8 +3,14 @@
 
 int main()
 {
+    // cv::VideoCapture cap(
+    // "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=640, height=480, framerate=60/1 ! "
+    // "nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink",
+    // cv::CAP_GSTREAMER
+    // );
+
     cv::VideoCapture cap(
-    "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=640, height=480, framerate=60/1 ! "
+    "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1920, height=1080, framerate=60/1 ! "
     "nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink",
     cv::CAP_GSTREAMER
     );
@@ -43,7 +49,9 @@ int main()
         // Step 4: Draw Contours
         cv::drawContours(frame, contours, -1, cv::Scalar(0, 0, 255), 2);
 
-        cv::imshow("Contours", frame);
+        for()
+
+        cv::imshow("Camera", frame);
 
         if(cv::waitKey(1) == 27) break;
     }
