@@ -30,9 +30,15 @@ int main()
         cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
 
         // Step 2: Thershold
-        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU)
+        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
 
+        // Step 3: Find contours
+        cv::findContours(binary, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 
+        // Step 4: Draw Contours
+        cv::drawContours(frame, contours, -1, cv::Scalar(0, 0, 255), 2);
+
+        cv::imshow("Contours", frame);
 
         if(cv::waitKey(1) == 27) break;
     }
