@@ -42,8 +42,8 @@ int main()
         cv::imshow("Binary", binary);
         cv::imshow("After Morphology Open", morphopen);
         cv::imshow("After Morphology Close", morphclose);
-        cv::imshow("Erode", erode);
-        cv::imshow("Dilated", dilated);
+        // cv::imshow("Erode", erode);
+        // cv::imshow("Dilated", dilated);
 
         if(cv::waitKey(1) == 27) break;
     }

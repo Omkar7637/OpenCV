@@ -27,3 +27,7 @@ To github.com:Omkar7637/OpenCV.git
  rename CPP/{07-OTSU_Thershold copy.cpp => 08-Morphology.cpp} (70%)
 To github.com:Omkar7637/OpenCV.git
    92eb5c6..a895ddb  main -> main
+[main 84d3658] Auto update: 2025-12-19 12:15:01
+ 2 files changed, 15 insertions(+), 4 deletions(-)
+To github.com:Omkar7637/OpenCV.git
+   a895ddb..84d3658  main -> main
