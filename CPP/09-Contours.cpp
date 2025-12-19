@@ -32,6 +32,8 @@ int main()
         // Step 2: Thershold
         cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
 
+        
+
         // Step 3: Find contours
         cv::findContours(binary, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 
