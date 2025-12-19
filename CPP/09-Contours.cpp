@@ -39,7 +39,7 @@ int main()
         cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
 
         // Step 2: Thershold
-        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY_INV | cv::THRESH_OTSU);
+        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
 
         cv::morphologyEx(binary, morphclose, cv::MORPH_CLOSE, kernal);
 
