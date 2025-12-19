@@ -18,19 +18,26 @@ int main()
     cv::namedWindow("Camera", cv::WINDOW_NORMAL);
     cv::setWindowProperty("Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
 
-    cv::Mat frame, gray, binary;
+    cv::Mat frame, gray, binary, morph;
 
     while(true)
     {
         cap >> frame;
         if(frame.empty()) break;
 
+        cv:: Mat kernal = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(5, 5));
+
         cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
 
-        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY_INV | cv::THRESH_OTSU | cv::THRESH_BINARY);
+        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
+
+        cv::morphologyEx(binary, morph, cv::MORPH_CLOSE, kernal);
+
+        cv::erode()
 
         cv::imshow("Grayscale", gray);
         cv::imshow("Binary", binary);
+        cv::imshow("After Morphology", morph);
 
         if(cv::waitKey(1) == 27) break;
     }

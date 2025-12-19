@@ -8,3 +8,17 @@ To github.com:Omkar7637/OpenCV.git
  create mode 100755 CPP/07-OTSU_Thershold
 To github.com:Omkar7637/OpenCV.git
    b533a49..d051a11  main -> main
+[main 92eb5c6] Auto update: 2025-12-19 12:05:01
+ 12 files changed, 48 insertions(+)
+ delete mode 100755 CPP/01-lesson1
+ delete mode 100755 CPP/04-Blur_demo
+ delete mode 100755 CPP/05-edge_pipeline
+ delete mode 100755 CPP/06-Thershold_basic
+ delete mode 100755 CPP/07-OTSU_Thershold
+ create mode 100644 CPP/07-OTSU_Thershold copy.cpp
+ delete mode 100755 CPP/test
+ delete mode 100755 Python/camera
+ delete mode 100755 Python/grayscale
+ delete mode 100755 Python/lession1
+To github.com:Omkar7637/OpenCV.git
+   d051a11..92eb5c6  main -> main
