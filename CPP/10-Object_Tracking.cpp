@@ -20,9 +20,15 @@ int main()
 
     // OpenCV Variables
     cv::Mat frame, gray, binary, morph;
+
+    // Selecting Shpe to show All 1s shpes
     cv::Mat kernal = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(5, 5));
 
-    
+    // While loop for video each frame scanning
+    while(true)
+    {
+        cap >> frame;
+    }
 
     
     
