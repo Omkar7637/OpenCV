@@ -60,7 +60,7 @@ int main()
 
             // Compute movements
             cv::Moments m = cv::moments(contours[i]);
-
+            cv::Rect box = cv::boundingRect(contours[i]);
             // Safety check (avoid divide by zero)
             if (m.m00 == 0)
                 continue;
@@ -75,8 +75,11 @@ int main()
             // Draw contours
             cv:: drawContours(frame, contours, i, cv::Scalar(0, 0 ,255), 2);
 
+            // Draw bonding Box
+            cv::rectangle(frame, box, cv::Scalar(255, 0, 0), 2);
+
             // Show centroid coordinates
-            cv::putText(frame, "Cx:" + std::to_string(cx) + " Cy:" + std::to_string(cy) ,
+            cv::putText(frame, "Cx:" + std::to_string(cx) + " Cy:" + std::to_string(cy) + "Area: " + std::to_string(area),
             cv::Point(cx + 10, cy - 10), 
             cv::FONT_HERSHEY_SIMPLEX,
             0.5, cv::Scalar(0, 255, 0), 
