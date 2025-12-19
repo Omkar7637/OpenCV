@@ -65,16 +65,35 @@ int main()
         " video/x-raw, format=BGR !"
 
         // appsink
+        //  - Sink elemnt that allows applications (OpenCV) to read frames
+        //  - Without appsink, OpenCV cannot access the video stream
         " appsink",
+
+        // --------------------------Backend Selection
+        //
+        //cv::CAP_GSTREAMER
+        //  - Force OpenCV to use the GStreamer backend
+        //  - Mandatory when passing a GStreamer pipeline string
         cv::CAP_GSTREAMER
     );
 
-    // Camera access cheking
+    // ================== CAMERA ACCESS CHECK ==========================================
+    //
+    //  - GStreamer pipeline creation
+    //  - Camera availability
+    //  - Successful negotiation of caps (resolutionn, FPS, format)
+    // 
+    // If any element in the ipeline fails, this returns false
     if(!cap.isOpened())
     {
         std::cout << "Camera Not supported!" << std::endl;
-        return -1;
+        return -1; // Exit program safely
     }
+
+    // =============== Pipeline Breakdown==================
+    //
+    //              CSI Camera Sensor
+    //                      
 
     // OpenCV Variables
     cv::Mat frame, gray, binary, morph;
