@@ -13,8 +13,9 @@
 
 int main()
 {
-
-    // Camera access
+    //====================== CAMERA ACCESS USING GStreamer ======================
+    // 
+    // cv:: VideoCapture can accept a GStreamser piprline string insted of a 
     cv::VideoCapture cap(
     "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1920, height=1080, framerate=60/1 ! "
     "nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink",
