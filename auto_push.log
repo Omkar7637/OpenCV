@@ -3,3 +3,8 @@
  create mode 100644 auto_push.log
 To github.com:Omkar7637/OpenCV.git
    6626142..b533a49  main -> main
+[main d051a11] Auto update: 2025-12-19 12:00:01
+ 3 files changed, 6 insertions(+), 1 deletion(-)
+ create mode 100755 CPP/07-OTSU_Thershold
+To github.com:Omkar7637/OpenCV.git
+   b533a49..d051a11  main -> main

@@ -28,3 +28,5 @@ echo "✅ Build successful"
 
 # Run
 ./"$OUT"
+
+rm $OUT
