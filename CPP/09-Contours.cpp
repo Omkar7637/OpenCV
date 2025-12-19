@@ -39,7 +39,7 @@ int main()
         cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
 
         // Step 2: Thershold
-        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
+        cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY_INV | cv::THRESH_OTSU);
 
         cv::morphologyEx(binary, morphclose, cv::MORPH_CLOSE, kernal);
 
@@ -76,11 +76,13 @@ int main()
             cv:: drawContours(frame, contours, i, cv::Scalar(0, 0 ,255), 2);
 
             // Show centroid coordinates
-            cv::putText(frame, "Cx:" + std::to_string(cx) + " Cy:" + std::to_string(cy),
+            cv::putText(frame, "Cx:" + std::to_string(cx) + " Cy:" + std::to_string(cy) ,
             cv::Point(cx + 10, cy - 10), 
             cv::FONT_HERSHEY_SIMPLEX,
             0.5, cv::Scalar(0, 255, 0), 
             1);
+
+            // std::cout << area << std::endl;
         }
 
         cv::imshow("Camera", frame);
