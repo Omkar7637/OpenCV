@@ -21,6 +21,8 @@ int main()
     // OpenCV Variables
     cv::Mat frame, gray, binary, morph;
 
+    //--------------------------------------------------------------------------
+
     // Create a structuring element (also called a kernel) for morphology
     //
     // cv::Mat kernel
@@ -49,6 +51,8 @@ int main()
         cv::Size(5, 5)
     );
 
+    //------------------------------------------------------------------------
+
 
     // While loop for video each frame scanning
     while(true)
@@ -66,12 +70,24 @@ int main()
 
         cv::cvtColor(
             frame, // -> Input: Origianl BGR image from camera
-            gray, // Output: Single-channel
-            cv::COLOR_BGR2GRAY);
+            gray, // Output: Single-channel (Grayscale image)
+            cv::COLOR_BGR2GRAY // Conversion type: BGR -> Grayscale
+        ); 
 
-        // Convert Grayscale image into only TWO Values
-        // - 0   (Black)
-        // - 255 (White)
+        //----------------------------------------------------------------
+
+        // Apply thersholding to convert a grayscale image a binary image
+        //
+        // cv::thershold(
+        //      InputArray src,         -> Source Image (Grayscale only)
+        //      OutputArray dst,        -> Output binary Image
+        //      double  thresh,         -> tehrshold value (Ignore in OTSU)
+        //      double maxVal,          -> value assigned to pixel passing the thershold
+        //      int type                -> thersholding method
+        // )
+        //
+        // This convertes a grayscale image into only TWO Style
+
 
     }
 
