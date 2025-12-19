@@ -21,8 +21,34 @@ int main()
     // OpenCV Variables
     cv::Mat frame, gray, binary, morph;
 
-    // Selecting Shpe to show All 1s shpes
-    cv::Mat kernal = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(5, 5));
+    // Create a structuring element (also called a kernel) for morphology
+    //
+    // cv::Mat kernel
+    //  - cv::Mat is OpenCV's matrix class
+    //  - Here it stores a small 2D binary mask used in morphological operations
+    //
+    // cv::getStructuringElement()
+    //  - OpenCV function to generate predefined kernel shapes
+    //
+    // cv::MORPH_RECT
+    //  - Shape of the kernel
+    //  - MORPH_RECT  -> Rectangular kernel (all ones)
+    //  - Other options:
+    //      cv::MORPH_ELLIPSE -> Oval / circular shape
+    //      cv::MORPH_CROSS   -> Cross (+) shape
+    //
+    // cv::Size(5, 5)
+    //  - Kernel width  = 5 pixels
+    //  - Kernel height = 5 pixels
+    //  - Must usually be odd numbers (3,5,7...) so there is a center pixel
+    //
+    // Result:
+    //  - A 5x5 matrix filled with 1s (for MORPH_RECT)
+    cv::Mat kernel = cv::getStructuringElement(
+        cv::MORPH_RECT,
+        cv::Size(5, 5)
+    );
+
 
     // While loop for video each frame scanning
     while(true)
@@ -30,10 +56,22 @@ int main()
         // Take Single frame
         cap >> frame;
 
-        // Convert Frame into Grayscale
-        cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+        // Convert a color image (BGR format) into a grayscale
+        //
+        // cv::cvtColor(
+        //  InputArray scr,     -> source Image (Color Image)
+        //  OutputArray dst,    -> Destination image (Grayscale image)
+        //  int code            -> Color conversion Mode
+        // )
 
-        // 
+        cv::cvtColor(
+            frame, // -> Input: Origianl BGR image from camera
+            gray, // Output: Single-channel
+            cv::COLOR_BGR2GRAY);
+
+        // Convert Grayscale image into only TWO Values
+        // - 0   (Black)
+        // - 255 (White)
 
     }
 
