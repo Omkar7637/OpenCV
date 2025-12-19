@@ -21,10 +21,13 @@ int main()
     cv::Mat frame, gray, binary, morphopen, morphclose, erode, dilated;
     std::vector<std::vector<cv::Point>> contours;
 
+    cv::Mat kernal = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(5, 5));
+
     while(true)
     {
         cap >> frame;
         if(frame.empty()) break;
+
 
         // Step 1: Convert to gray
         cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
@@ -32,10 +35,10 @@ int main()
         // Step 2: Thershold
         cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
 
-        
+        cv::morphologyEx(binary, morphclose, cv::MORPH_CLOSE, kernal);
 
         // Step 3: Find contours
-        cv::findContours(binary, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+        cv::findContours(morphclose, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 
         // Step 4: Draw Contours
         cv::drawContours(frame, contours, -1, cv::Scalar(0, 0, 255), 2);
