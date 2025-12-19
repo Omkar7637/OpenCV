@@ -2,9 +2,14 @@
 // 
 // This is the main OpenCV header.
 // it Includes almost all commenly used OpenCV modiules:
-// core, image
+// core, imageproc, highgui, video, etc.
 #include<opencv2/opencv.hpp>
+
+// Standered c++ input-output stram library
+// Used here for debugging or printing messages if nedded.
 #include<iostream>
+
+//======================= MAIN FUNCTION =========================================
 
 int main()
 {
