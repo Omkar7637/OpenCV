@@ -38,8 +38,9 @@ int main()
         //  - Frames per second (60 FPS)
         //  - Format is numerator/denominator
         //
-        "nvarguscamerasrc !" 
-        "video/x-raw(memory:NVMM), width=1920, height=1080, framerate=60/1 ! "
+        "nvarguscamerasrc !" // Direct Interface to Nvidia driver | Uses ISP (Image Signal Processor) | Support: Auto exposure/Auto while balance/HDR (If supported)
+        "video/x-raw(memory:NVMM)," //   
+        "width=1920, height=1080, framerate=60/1 ! "
 
         // nvvidconv
         //  - NVIDIA hardware-acclerated video converter
@@ -93,7 +94,24 @@ int main()
     // =============== Pipeline Breakdown==================
     //
     //              CSI Camera Sensor
-    //                      
+    //                      |
+    //              nvarguscamerasrc
+    //                      |
+    //              NVMM (GPU Memory)
+    //                      |
+    //              nvvidconv (HW accelerated)
+    //                      |
+    //                     BGRx
+    //                      |
+    //              videoconverter (CPU)
+    //                      |
+    //                     BGR
+    //                      |
+    //                   appsink
+    //                      |
+    //              OpenCV cv::Mat
+    //
+    //====================================================
 
     // OpenCV Variables
     cv::Mat frame, gray, binary, morph;
