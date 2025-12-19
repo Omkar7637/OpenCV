@@ -1,3 +1,8 @@
+// ===================== Header Files ===========================================
+// 
+// This is the main OpenCV header.
+// it Includes almost all commenly used OpenCV modiules:
+// core, image
 #include<opencv2/opencv.hpp>
 #include<iostream>
 
@@ -86,8 +91,19 @@ int main()
         //      int type                -> thersholding method
         // )
         //
-        // This convertes a grayscale image into only TWO Style
+        // This convertes a grayscale image into only TWO Values:
+        // - 0      (Black)
+        // - 255    (White)
+        cv::threshold(
+            gray,       // Input Grayscale image
+            binary,     // Output binary image
+            0,          // Thershold value (not used by OTSU)
+            255,        // Maximum value for THRESH_BINARY
+            cv::THRESH_BINARY | // Binary thersholding
+            cv::THRESH_OTSU // Automatically calculates best thershold
+        );
 
+        //-------------------------------------------------------------------
 
     }
 
