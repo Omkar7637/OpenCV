@@ -15,8 +15,18 @@ int main()
 {
     //====================== CAMERA ACCESS USING GStreamer ======================
     // 
-    // cv:: VideoCapture can accept a GStreamser piprline string insted of a 
+    // cv:: VideoCapture can accept a GStreamser piprline string insted of a device index.
+    // This is REQUIRED on NVIDIA Jetson boards to access the CSI camera efficiently
+    // using the NVIDIA Argus camera stack
     cv::VideoCapture cap(
+        // --------------------GStreamer Pipline String---------------------------
+        //
+        // nvarguscamerasrc
+        //  - NVIDIA Argus Camera Source
+        //  - Used ONLY for CSI camera on jetson (IMX219, IMX477, etc.)
+        //  - Provide zero-copy access to camera frames via NVMM memory
+        //
+        //
     "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1920, height=1080, framerate=60/1 ! "
     "nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink",
     cv::CAP_GSTREAMER
