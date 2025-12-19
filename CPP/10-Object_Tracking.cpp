@@ -46,7 +46,26 @@ int main()
         //  - Converts from NVMM memory format to understand system memory
         //  - Also handles color format conversion
         "nvvidconv !"
-        " video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink",
+
+        // Video/x-raw, format=BGRx
+        //  - Intermediate format
+        //  - BGRx = BGR + unused alpha channel
+        //  - Required because videoconvert works efficently with BGRx
+        "video/x-raw, format=BGRx !"
+
+        // videoconverter
+        //  - CPU-based colro format converter
+        //  - Converts BGRx -> BGR
+        //  - OpenCV expects BGR format
+        " videoconvert !"
+
+        // Video/x-raw, format=BGR
+        //  - Final format passed to OpenCV
+        //  - 3-channel BGR image (CV_8UC3)
+        " video/x-raw, format=BGR !"
+
+        // appsink
+        " appsink",
         cv::CAP_GSTREAMER
     );
 
