@@ -26,10 +26,28 @@ int main()
         //  - Used ONLY for CSI camera on jetson (IMX219, IMX477, etc.)
         //  - Provide zero-copy access to camera frames via NVMM memory
         //
+        // Video/x-raw(memory:NVMM)
+        //  - Spacifics raw video frames
+        //  - memory:NVMM means frames are stored in NVIDIA GPU Memory
         //
-    "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1920, height=1080, framerate=60/1 ! "
-    "nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink",
-    cv::CAP_GSTREAMER
+        // width=1920, height=1080
+        //  - Resolution of the camera capture
+        //  - Must match one of the camera's supported sensor modes
+        //
+        // Framerate=60/1
+        //  - Frames per second (60 FPS)
+        //  - Format is numerator/denominator
+        //
+        "nvarguscamerasrc !" 
+        "video/x-raw(memory:NVMM), width=1920, height=1080, framerate=60/1 ! "
+
+        // nvvidconv
+        //  - NVIDIA hardware-acclerated video converter
+        //  - Converts from NVMM memory format to understand system memory
+        //  - Also handles color format conversion
+        "nvvidconv !"
+        " video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! appsink",
+        cv::CAP_GSTREAMER
     );
 
     // Camera access cheking
