@@ -22,3 +22,8 @@ To github.com:Omkar7637/OpenCV.git
  delete mode 100755 Python/lession1
 To github.com:Omkar7637/OpenCV.git
    d051a11..92eb5c6  main -> main
+[main a895ddb] Auto update: 2025-12-19 12:10:01
+ 2 files changed, 23 insertions(+), 2 deletions(-)
+ rename CPP/{07-OTSU_Thershold copy.cpp => 08-Morphology.cpp} (70%)
+To github.com:Omkar7637/OpenCV.git
+   92eb5c6..a895ddb  main -> main

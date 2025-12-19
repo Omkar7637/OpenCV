@@ -18,7 +18,7 @@ int main()
     cv::namedWindow("Camera", cv::WINDOW_NORMAL);
     cv::setWindowProperty("Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
 
-    cv::Mat frame, gray, binary, morph;
+    cv::Mat frame, gray, binary, morphopen, morphclose, erode, dilated;
 
     while(true)
     {
@@ -31,13 +31,19 @@ int main()
 
         cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY | cv::THRESH_OTSU);
 
-        cv::morphologyEx(binary, morph, cv::MORPH_CLOSE, kernal);
+        cv::morphologyEx(binary, morphclose, cv::MORPH_CLOSE, kernal);
+        cv::morphologyEx(binary, morphopen, cv::MORPH_OPEN, kernal);
 
-        cv::erode()
+        cv::erode(binary, erode, kernal);
+
+        cv::dilate(binary, dilated, kernal);
 
         cv::imshow("Grayscale", gray);
         cv::imshow("Binary", binary);
-        cv::imshow("After Morphology", morph);
+        cv::imshow("After Morphology Open", morphopen);
+        cv::imshow("After Morphology Close", morphclose);
+        cv::imshow("Erode", erode);
+        cv::imshow("Dilated", dilated);
 
         if(cv::waitKey(1) == 27) break;
     }
