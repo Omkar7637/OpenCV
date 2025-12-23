@@ -4869,3 +4869,10 @@ To github.com:Omkar7637/OpenCV.git
  1 file changed, 4 insertions(+)
 To github.com:Omkar7637/OpenCV.git
    c5b9857..d35dfa8  main -> main
+[main 2a915f7] Auto update: 2025-12-23 16:25:15
+ 1 file changed, 4 insertions(+)
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
