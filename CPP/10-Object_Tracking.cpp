@@ -240,7 +240,23 @@ int main()
         // Meaning:
         // - Outer vector -> holds ALL detected countours
         // - Inner vector -> holds points of ONE countour
-        // - cv::Point    -> repersents a 2D pixel coordinates
+        // - cv::Point    -> repersents a 2D pixel coordinates (x, y)
+        //
+        // Each countour is a basically a list of connected boundary pixel
+        std::vector<std::vetor<cv::Point>> countours;
+
+        // ================= COUNTOUR DETECTION ==============================
+        //
+        // cv::findCountours(
+        // InputOutputArray image,          -> binary image (will be MODIFIED)
+        // OutputArrayOfArrays countours,   -> detected contours
+        // int mode,                        -> contour retrival mode
+        // int method,                      -> contour approximation method
+        // )
+        cv::findcountours(
+            morph,      // Input binary image (after morphology)
+            countours,  // Output vector containing countours
+        )
 
     }
 
