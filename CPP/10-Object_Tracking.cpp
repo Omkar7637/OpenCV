@@ -335,7 +335,32 @@ int main()
                 //
                 // Returns:
                 // - cv::Rect (x, y, windth, height)
-                cv::Rect box = cv:: boundingRect(countours[])
+                cv::Rect box = cv:: boundingRect(countours[largeIndex]);
+
+                // Draw rectangle around the detected object
+                //
+                // cv::rectangle(
+                //      image,      -> destiantion image
+                //      rect,       -> rectnagle position and size
+                //      color,      -> BGR color
+                //      thickness   -> border thickness
+                // )
+                cv::rectangle(
+                    frame, 
+                    box, 
+                    cv::Scalar(255, 0, 0), // Blue rectangle
+                    2
+                );
+
+                // ===================== MOVEMENT CALCULATIONS ==========================
+                //
+                // cv::movements():
+                // - Computes spatial movements of the countour
+                // - Used to calculate cnetroid, area, orientation
+                //
+                // m.m00 -> Zerooth moment (area)
+                // m.m10 -> First moment (x-direction)
+                // m.m
             }
         }
 
