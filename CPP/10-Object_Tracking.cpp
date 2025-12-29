@@ -198,11 +198,11 @@ int main()
         // Apply thersholding to convert a grayscale image a binary image
         //
         // cv::thershold(
-        //      InputArray src,         -> Source Image (Grayscale only)
+        //      InputArray  src,        -> Source Image (Grayscale only)
         //      OutputArray dst,        -> Output binary Image
-        //      double  thresh,         -> tehrshold value (Ignore in OTSU)
-        //      double maxVal,          -> value assigned to pixel passing the thershold
-        //      int type                -> thersholding method
+        //      double      thresh,     -> tehrshold value (Ignore in OTSU)
+        //      double      maxVal,     -> value assigned to pixel passing the thershold
+        //      int         type        -> thersholding method
         // )
         //
         // This convertes a grayscale image into only TWO Values:
@@ -224,8 +224,12 @@ int main()
         // cv::morphologyEx(
         //      InputArray  src,        -> source image (binary image)
         //      OutputArray dst,        -> output image after morphology
-        //      int         op,         -> type of morpholo
+        //      int         op,         -> type of morphological operations
+        //      InputArray  kernal      -> structuring element (kernal)
         // )
+        cv::morphologyEx(
+            binary
+        )
 
     }
 
