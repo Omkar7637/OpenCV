@@ -299,7 +299,27 @@ int main()
                 // Upodate maximum area
                 maxArea = area;
 
-                // 
+                // Stores index of the largest contour
+                largeIndex = i;
+            }
+
+            // Proceed only if a valid largest contour was found
+            //
+            // largeIndex == -1 means:
+            // - No countours detected 
+            // - Or all countours were filtered out
+            if(largeIndex != -1)
+            {
+                // ========================= DRAW CONTOUR ============================
+                //
+                // cv::drawCountours(
+                //      image,          -> image on which to draw 
+                //      contours,       -> all detected countours
+                //      contourIdx,     -> index of countor to draw
+                //      color,          -> BGR color
+                //      thickness       -> line thickness
+                // )
+                cv::Draw
             }
         }
 
