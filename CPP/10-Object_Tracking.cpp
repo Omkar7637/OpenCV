@@ -219,6 +219,14 @@ int main()
 
         //-------------------------------------------------------------------
 
+        // Perform a morphological opertaion on a binary image
+        //
+        // cv::morphologyEx(
+        //      InputArray  src,        -> source image (binary image)
+        //      OutputArray dst,        -> output image after morphology
+        //      int         op,         -> type of morpholo
+        // )
+
     }
 
     
@@ -226,3 +234,5 @@ int main()
 
     return 0;
 }
+
+/******************************* END OF FILE *********************************/
