@@ -228,8 +228,19 @@ int main()
         //      InputArray  kernal      -> structuring element (kernal)
         // )
         cv::morphologyEx(
-            binary
-        )
+            binary,                     // Input: binary image (0 to 255)
+            morph,                      // Output: morphologically processed image
+            cv::MORPH_CLOSE,            // Operation: Closing (Dilation -> Erosion)
+            kernal                      // Structuring element (defines nighbothood)
+        );
+
+        // ================= CONTOUR STORAGE =================================
+        // std::vector<std::vector<cv::Point>> contours
+        //
+        // Meaning:
+        // - Outer vector -> holds ALL detected countours
+        // - Inner vector -> holds points of ONE countour
+        // - cv::Point    -> repersents a 2D pixel coordinates
 
     }
 
