@@ -6,7 +6,7 @@
  *
  *  Author      : Omkar Ankush Kashid
  *  Created On  : 19-12-2025
- *  Last Update : 19-12-2025
+ *  Last Update : 29-12-2025
  *
  *  Platform    : NVIDIA Jetson Nano Super 8GB
  *  OS          : Ubuntu (JetPack)
@@ -136,6 +136,9 @@ int main()
     //              OpenCV cv::Mat
     //
     //====================================================
+
+    cv::namedWindow("Camera", cv::WINDOW_NORMAL);
+    cv::setWindowProperty("Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
 
     // OpenCV Variables
     cv::Mat frame, gray, binary, morph;
@@ -382,8 +385,8 @@ int main()
                 // cy = m01 / m00
                 //
                 // This gives the center of mass of the object
-                int cx = m.m10 / m.m00;
-                int cy = m.m01 / m.m00;
+                int cx = static_cast<int>(m.m10 / m.m00);
+                int cy = static_cast<int>(m.m01 / m.m00);
 
                 // ======================= DRAW CENTROID ===============================
                 // 
@@ -410,7 +413,7 @@ int main()
         // - countour
         // - bounding box
         // - centroid
-        cv::imshow("Object Traking", frame);
+        cv::imshow("Camera", frame);
 
         // =========================== EXIT CONDITION ===================================
         // 
