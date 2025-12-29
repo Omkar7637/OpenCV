@@ -11614,3 +11614,8 @@ To github.com:Omkar7637/OpenCV.git
  create mode 100755 CPP/10-Object_Tracking
 To github.com:Omkar7637/OpenCV.git
    2c057bf..bc38967  main -> main
+[main 633945d] Auto update: 2025-12-29 10:55:01
+ 3 files changed, 12 insertions(+), 4 deletions(-)
+ delete mode 100755 CPP/10-Object_Tracking
+To github.com:Omkar7637/OpenCV.git
+   bc38967..633945d  main -> main

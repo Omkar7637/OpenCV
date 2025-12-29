@@ -221,7 +221,7 @@ int main()
             binary,     // Output binary image
             0,          // Thershold value (not used by OTSU)
             255,        // Maximum value for THRESH_BINARY
-            cv::THRESH_BINARY | // Binary thersholding
+            cv::THRESH_BINARY_INV | // Binary thersholding
             cv::THRESH_OTSU // Automatically calculates best thershold
         );
 
