@@ -378,7 +378,24 @@ int main()
                     //
                     // This gives the center of mass of the object
                     int cx = m.m10 / m.m00
-                    int cy = m.m01 / m.m
+                    int cy = m.m01 / m.m00;
+
+                    // ======================= DRAW CENTROID ===============================
+                    // 
+                    // cv::circle(
+                    //      image,          -> destination image
+                    //      center,         -> center point
+                    //      radius,         -> circle radius
+                    //      color,          -> BGR color
+                    //      thickness       -> -1 means filled circle
+                    // )
+                    cv::circle(
+                        frame,              
+                        cv::Point(cx, cy),  // centroid position
+                        5,                  // Radius
+                        cv::Scalar(0, 0, 255), // Red Color 
+                        -1                  // Filled circle
+                    );
                 }
             }
         }
