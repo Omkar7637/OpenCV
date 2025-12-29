@@ -260,8 +260,19 @@ int main()
             cv::CHAIN_APPROX_SIMPLE // Compress countour points 
         );
 
-        // Pipeline until contexte
+        // Pipeline until context 
+        // frame → gray → binary → morph → contours
 
+        // Index of the largest contour found so far
+        //
+        // Intialized to -1 meaning 
+        // - No contour selected yet
+        // - Safe "Invalid" index
+        int largeIndex = -1;
+
+        // Stores the maximum area found among all countours
+        //
+        // Type: soube
 
 
     }
