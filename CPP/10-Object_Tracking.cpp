@@ -272,7 +272,17 @@ int main()
 
         // Stores the maximum area found among all countours
         //
-        // Type: soube
+        // Type: double
+        // Reason:
+        // - CountorArea() returns double
+        // - Areas can be large (thousands of pixels)
+        double macArea = 0;
+
+        // Loop thorough all detected countours
+        // 
+        // size_t:
+        // - unsigned all integer type
+        // - correct type for indexing containers returned by .size()
 
 
     }
