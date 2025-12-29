@@ -225,13 +225,13 @@ int main()
         //      InputArray  src,        -> source image (binary image)
         //      OutputArray dst,        -> output image after morphology
         //      int         op,         -> type of morphological operations
-        //      InputArray  kernal      -> structuring element (kernal)
+        //      InputArray  kernel      -> structuring element (kernel)
         // )
         cv::morphologyEx(
             binary,                     // Input: binary image (0 to 255)
             morph,                      // Output: morphologically processed image
             cv::MORPH_CLOSE,            // Operation: Closing (Dilation -> Erosion)
-            kernal                      // Structuring element (defines nighbothood)
+            kernel                      // Structuring element (defines nighbothood)
         );
 
         // ================= CONTOUR STORAGE =================================
@@ -243,7 +243,7 @@ int main()
         // - cv::Point    -> repersents a 2D pixel coordinates (x, y)
         //
         // Each countour is a basically a list of connected boundary pixel
-        std::vector<std::vetor<cv::Point>> countours;
+        std::vector<std::vector<cv::Point>> countours;
 
         // ================= COUNTOUR DETECTION ==============================
         //
@@ -253,7 +253,7 @@ int main()
         // int mode,                        -> contour retrival mode
         // int method,                      -> contour approximation method
         // )
-        cv::findcountours(
+        cv::findContours(
             morph,                  // Input binary image (after morphology)
             countours,              // Output vector containing countours
             cv::RETR_EXTERNAL,      // Retrive ONLY outermost countours
@@ -276,14 +276,14 @@ int main()
         // Reason:
         // - CountorArea() returns double
         // - Areas can be large (thousands of pixels)
-        double macArea = 0;
+        double maxArea = 0;
 
         // Loop thorough all detected countours
         // 
         // size_t:
         // - unsigned all integer type
         // - correct type for indexing containers returned by .size()
-        for(size_t i = 0; i < countour.size(); i++)
+        for(size_t i = 0; i < countours.size(); i++)
         {
             // Calculate area of the i-th countor
             //
@@ -291,7 +291,7 @@ int main()
             // - computes area using Green's theorem
             // - Returns area in pixel units
             // - Larger objects -> larger area
-            double area = cv::countoursArea(countours[i]);
+            double area = cv::contourArea(countours[i]);
 
             // Check if this countour is larger is larger than al preivous ones
             if(area > maxArea)
@@ -319,7 +319,7 @@ int main()
             //      color,          -> BGR color
             //      thickness       -> line thickness
             // )
-            cv::drawCountours(
+            cv::drawContours(
                 frame,              // Destimation image
                 countours,          // All countours
                 largeIndex,         // Only the largest countor
@@ -377,7 +377,7 @@ int main()
                 // cy = m01 / m00
                 //
                 // This gives the center of mass of the object
-                int cx = m.m10 / m.m00
+                int cx = m.m10 / m.m00;
                 int cy = m.m01 / m.m00;
 
                 // ======================= DRAW CENTROID ===============================
@@ -414,7 +414,7 @@ int main()
         // - Allows window refresh
         // - Returns ASCII value of pressed key
         // 27 = ESC key
-        if(cv::wiatKey(1) == 27) break;
+        if(cv::waitKey(1) == 27) break;
     }
 
     
