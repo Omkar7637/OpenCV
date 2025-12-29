@@ -302,105 +302,119 @@ int main()
                 // Stores index of the largest contour
                 largeIndex = i;
             }
-
-            // Proceed only if a valid largest contour was found
+        }
+        // Proceed only if a valid largest contour was found
+        //
+        // largeIndex == -1 means:
+        // - No countours detected 
+        // - Or all countours were filtered out
+        if(largeIndex != -1)
+        {
+            // ========================= DRAW CONTOUR ============================
             //
-            // largeIndex == -1 means:
-            // - No countours detected 
-            // - Or all countours were filtered out
-            if(largeIndex != -1)
+            // cv::drawCountours(
+            //      image,          -> image on which to draw 
+            //      contours,       -> all detected countours
+            //      contourIdx,     -> index of countor to draw
+            //      color,          -> BGR color
+            //      thickness       -> line thickness
+            // )
+            cv::drawCountours(
+                frame,              // Destimation image
+                countours,          // All countours
+                largeIndex,         // Only the largest countor
+                cv::Scalar(0, 255, 0), // Green Color (B, G, R)
+                2                   // Line thickness
+            );
+
+            // ===================== BOUNDING RECTANGLE ===========================
+            //
+            // cv::boundingRect():
+            // - Computes the small upright rectangle
+            // - That completely encloses the countour
+            //
+            // Returns:
+            // - cv::Rect (x, y, windth, height)
+            cv::Rect box = cv:: boundingRect(countours[largeIndex]);
+
+            // Draw rectangle around the detected object
+            //
+            // cv::rectangle(
+            //      image,      -> destiantion image
+            //      rect,       -> rectnagle position and size
+            //      color,      -> BGR color
+            //      thickness   -> border thickness
+            // )
+            cv::rectangle(
+                frame, 
+                box, 
+                cv::Scalar(255, 0, 0), // Blue rectangle
+                2
+            );
+
+            // ===================== MOVEMENT CALCULATIONS ==========================
+            //
+            // cv::movements():
+            // - Computes spatial movements of the countour
+            // - Used to calculate cnetroid, area, orientation
+            //
+            // m.m00 -> Zerooth moment (area)
+            // m.m10 -> First moment (x-direction)
+            // m.m01 -> First moment (y-direction)
+            cv::Moments m = cv:: moments(countours[largeIndex]);
+
+            // Check to avoid division by zero
+            //
+            // If m.m00 == 0:
+            // - Contour area is zero
+            // - Centroid is undefined
+            if(m.m00 != 0)
             {
-                // ========================= DRAW CONTOUR ============================
+                // ======================= CENTROID CALCULATIONS ========================
                 //
-                // cv::drawCountours(
-                //      image,          -> image on which to draw 
-                //      contours,       -> all detected countours
-                //      contourIdx,     -> index of countor to draw
+                // Centroid formula:
+                // cx = m10 / m00
+                // cy = m01 / m00
+                //
+                // This gives the center of mass of the object
+                int cx = m.m10 / m.m00
+                int cy = m.m01 / m.m00;
+
+                // ======================= DRAW CENTROID ===============================
+                // 
+                // cv::circle(
+                //      image,          -> destination image
+                //      center,         -> center point
+                //      radius,         -> circle radius
                 //      color,          -> BGR color
-                //      thickness       -> line thickness
+                //      thickness       -> -1 means filled circle
                 // )
-                cv::drawCountours(
-                    frame,              // Destimation image
-                    countours,          // All countours
-                    largeIndex,         // Only the largest countor
-                    cv::Scalar(0, 255, 0), // Green Color (B, G, R)
-                    2                   // Line thickness
+                cv::circle(
+                    frame,              
+                    cv::Point(cx, cy),  // centroid position
+                    5,                  // Radius
+                    cv::Scalar(0, 0, 255), // Red Color 
+                    -1                  // Filled circle
                 );
-
-                // ===================== BOUNDING RECTANGLE ===========================
-                //
-                // cv::boundingRect():
-                // - Computes the small upright rectangle
-                // - That completely encloses the countour
-                //
-                // Returns:
-                // - cv::Rect (x, y, windth, height)
-                cv::Rect box = cv:: boundingRect(countours[largeIndex]);
-
-                // Draw rectangle around the detected object
-                //
-                // cv::rectangle(
-                //      image,      -> destiantion image
-                //      rect,       -> rectnagle position and size
-                //      color,      -> BGR color
-                //      thickness   -> border thickness
-                // )
-                cv::rectangle(
-                    frame, 
-                    box, 
-                    cv::Scalar(255, 0, 0), // Blue rectangle
-                    2
-                );
-
-                // ===================== MOVEMENT CALCULATIONS ==========================
-                //
-                // cv::movements():
-                // - Computes spatial movements of the countour
-                // - Used to calculate cnetroid, area, orientation
-                //
-                // m.m00 -> Zerooth moment (area)
-                // m.m10 -> First moment (x-direction)
-                // m.m01 -> First moment (y-direction)
-                cv::Moments m = cv:: moments(countours[largeIndex]);
-
-                // Check to avoid division by zero
-                //
-                // If m.m00 == 0:
-                // - Contour area is zero
-                // - Centroid is undefined
-                if(m.m00 != 0)
-                {
-                    // ======================= CENTROID CALCULATIONS ========================
-                    //
-                    // Centroid formula:
-                    // cx = m10 / m00
-                    // cy = m01 / m00
-                    //
-                    // This gives the center of mass of the object
-                    int cx = m.m10 / m.m00
-                    int cy = m.m01 / m.m00;
-
-                    // ======================= DRAW CENTROID ===============================
-                    // 
-                    // cv::circle(
-                    //      image,          -> destination image
-                    //      center,         -> center point
-                    //      radius,         -> circle radius
-                    //      color,          -> BGR color
-                    //      thickness       -> -1 means filled circle
-                    // )
-                    cv::circle(
-                        frame,              
-                        cv::Point(cx, cy),  // centroid position
-                        5,                  // Radius
-                        cv::Scalar(0, 0, 255), // Red Color 
-                        -1                  // Filled circle
-                    );
-                }
             }
         }
 
+        // =========================== DISPLAY OUTPUT ===================================
+        //
+        // Shows final processed frame with:
+        // - countour
+        // - bounding box
+        // - centroid
+        cv::imshow("Object Traking", frame);
 
+        // =========================== EXIT CONDITION ===================================
+        // 
+        // cv::waitKey(1):
+        // - waits 1 milliscond
+        // - Allows window refresh
+        // - Returns ASCII value of pressed key
+        // 27 = ESC key
+        if(cv::wiatKey(1) == 27) break;
     }
 
     
