@@ -360,7 +360,26 @@ int main()
                 //
                 // m.m00 -> Zerooth moment (area)
                 // m.m10 -> First moment (x-direction)
-                // m.m
+                // m.m01 -> First moment (y-direction)
+                cv::Moments m = cv:: moments(countours[largeIndex]);
+
+                // Check to avoid division by zero
+                //
+                // If m.m00 == 0:
+                // - Contour area is zero
+                // - Centroid is undefined
+                if(m.m00 != 0)
+                {
+                    // ======================= CENTROID CALCULATIONS ========================
+                    //
+                    // Centroid formula:
+                    // cx = m10 / m00
+                    // cy = m01 / m00
+                    //
+                    // This gives the center of mass of the object
+                    int cx = m.m10 / m.m00
+                    int cy = m.m01 / m.m
+                }
             }
         }
 
