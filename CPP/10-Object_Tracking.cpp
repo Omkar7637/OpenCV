@@ -254,9 +254,15 @@ int main()
         // int method,                      -> contour approximation method
         // )
         cv::findcountours(
-            morph,      // Input binary image (after morphology)
-            countours,  // Output vector containing countours
-        )
+            morph,                  // Input binary image (after morphology)
+            countours,              // Output vector containing countours
+            cv::RETR_EXTERNAL,      // Retrive ONLY outermost countours
+            cv::CHAIN_APPROX_SIMPLE // Compress countour points 
+        );
+
+        // Pipeline until contexte
+
+
 
     }
 
