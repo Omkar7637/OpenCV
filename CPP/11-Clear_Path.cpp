@@ -6,8 +6,8 @@
 *   Created On  : 29-12-2025
 *   Last Updated: 29-12-2025
 *
-*   Platform    : NVIDIA
-*
-*
+*   Platform    : NVIDIA Jetson Nano Super 8GB
+*   OS          : Ubuntu (JetPack)
+*   Language    : C++
 * 
 ********************************************************************************************/
