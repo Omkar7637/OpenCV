@@ -319,7 +319,23 @@ int main()
                 //      color,          -> BGR color
                 //      thickness       -> line thickness
                 // )
-                cv::Draw
+                cv::drawCountours(
+                    frame,              // Destimation image
+                    countours,          // All countours
+                    largeIndex,         // Only the largest countor
+                    cv::Scalar(0, 255, 0), // Green Color (B, G, R)
+                    2                   // Line thickness
+                );
+
+                // ===================== BOUNDING RECTANGLE ===========================
+                //
+                // cv::boundingRect():
+                // - Computes the small upright rectangle
+                // - That completely encloses the countour
+                //
+                // Returns:
+                // - cv::Rect (x, y, windth, height)
+                cv::Rect box = cv:: boundingRect(countours[])
             }
         }
 
