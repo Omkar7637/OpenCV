@@ -283,6 +283,25 @@ int main()
         // size_t:
         // - unsigned all integer type
         // - correct type for indexing containers returned by .size()
+        for(size_t i = 0; i < countour.size(); i++)
+        {
+            // Calculate area of the i-th countor
+            //
+            // countourArea():
+            // - computes area using Green's theorem
+            // - Returns area in pixel units
+            // - Larger objects -> larger area
+            double area = cv::countoursArea(countours[i]);
+
+            // Check if this countour is larger is larger than al preivous ones
+            if(area > maxArea)
+            {
+                // Upodate maximum area
+                maxArea = area;
+
+                // 
+            }
+        }
 
 
     }
