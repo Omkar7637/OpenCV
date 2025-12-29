@@ -178,6 +178,11 @@ int main()
     {
         // Take Single frame
         cap >> frame;
+        if(frame.empty())
+        {
+            std::cerr << "Empty frame received!" << std::endl;
+            continue;
+        }
 
         // Convert a color image (BGR format) into a grayscale
         //
