@@ -121,3 +121,5 @@ void moveAllZerosToTheEnd(int* arr, int size)
 
     showArray(arr, size);
 }
+
+std::swap;
