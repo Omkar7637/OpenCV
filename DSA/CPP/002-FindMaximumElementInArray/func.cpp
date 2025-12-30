@@ -63,11 +63,11 @@ void checkArrayIsSorted(int* arr, int size)
         {
             flagshort = true;
             count++;
+            
+            if(count == 1)
+            {
+                std::cout << "Array is not shorted" << std::endl;
+            }
         }
-    }
-    
-    if(count == 1)
-    {
-        std::cout << "Array is not shorted" << std::endl;
     }
 }
