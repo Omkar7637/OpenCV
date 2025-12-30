@@ -76,6 +76,7 @@ void findTheSecondLargestNumber(int* arr,int size)
     secondLargestElement = -1;
     int firstLargestElement = -1;
 
+    // Code
     // Second largest elemnt in array
     for(int i = 0; i < size; i++)
     {
@@ -90,6 +91,7 @@ void findTheSecondLargestNumber(int* arr,int size)
         }
     }
 
+    // Show Output
     if(secondLargestElement == -1)
     {
         std::cout << "Second largest element does not exists!!!" << std::endl;
@@ -102,5 +104,15 @@ void findTheSecondLargestNumber(int* arr,int size)
 
 void moveAllZerosToTheEnd(int* arr, int size)
 {
-    
+    // Variable declartions
+    int count = 0;
+    // Code
+
+    for(int i = 0; i < size; i++)
+    {
+        if(arr[i] == 0)
+        {
+            
+        }
+    }
 }

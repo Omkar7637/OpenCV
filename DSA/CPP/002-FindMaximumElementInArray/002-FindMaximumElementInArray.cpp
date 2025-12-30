@@ -9,7 +9,7 @@ int main()
     int arraySize = 20;
 
     // Origianl Array for Operations
-    int arr[arraySize] = { 9, 5, 13, 2, 5, 8, 5, 3, 6, 8};
+    int arr[arraySize] = { 9, 0, 5, 0, 13, 2, 5, 0, 8, 5, 3, 6, 8, 54, 12, 45, 78, 23, 67, 21};
 
 
     // ================ CODE =================
@@ -30,6 +30,7 @@ int main()
     findTheSecondLargestNumber(arr, arraySize);
 
     // Move all the zeros to the end 
+    moveAllZerosToTheEnd(arr, arraySize);
 
 
 
