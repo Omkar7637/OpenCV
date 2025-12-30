@@ -1,7 +1,11 @@
+// ================== FUNCTION DEFINATIONS ======================
+// Find largest element in array 
 void findLargestNumebrInArray(int *arr, int size)
 {
+    // Variable declartions
     int largestnumber = arr[0];
     
+    // Code
     std::cout << std::endl << "Largest Number in Array:";
     for(int i = 1; i < size; i++)
     {
@@ -14,6 +18,7 @@ void findLargestNumebrInArray(int *arr, int size)
     std::cout << largestnumber << std::endl; 
 }
 
+// Show All Elements of array
 void showArray(int *arr, int size)
 {
     std::cout << std::endl;
