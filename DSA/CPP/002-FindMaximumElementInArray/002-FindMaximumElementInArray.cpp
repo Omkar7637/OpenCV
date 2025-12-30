@@ -6,20 +6,7 @@ int main()
 
     showArray(arr, arraySize);
 
-    int largenumber = arr[0];
-
-    for(int i = 1; i < 10; i++)
-    {
-        if(largenumber < arr[i])
-        {
-            largenumber = arr[i];
-        }
-    }
-
-    std::cout << "Larges elemnet in Array: " << largenumber;
-
-
-    std::cout << "\n\n";
+    findLargestNumebrInArray(arr, arraySize);
 
 
     return(EXIT_SUCCESS);

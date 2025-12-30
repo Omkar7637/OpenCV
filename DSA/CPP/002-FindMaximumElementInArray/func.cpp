@@ -1,9 +1,20 @@
-int findLargestNumebrInArray(int *arr, int size)
+void findLargestNumebrInArray(int *arr, int size)
 {
+    int largestnumber = arr[0];
+    
+    std::cout << std::endl << "Largest Number in Array:";
+    for(int i = 1; i < size; i++)
+    {
+        if(largestnumber < arr[i])
+        {
+            largestnumber = arr[i];
+        }
+    }
 
+    std::cout << largestnumber << std::endl; 
 }
 
-int showArray(int *arr, int size)
+void showArray(int *arr, int size)
 {
     std::cout << std::endl;
     std::cout << "All Array Elementes:";
