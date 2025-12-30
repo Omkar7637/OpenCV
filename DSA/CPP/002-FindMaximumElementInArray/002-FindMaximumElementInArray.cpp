@@ -18,22 +18,22 @@ int main()
 
     // --------- Largest Element -------------
     // Function call for find largest element in Array
-    findLargestNumebrInArray(arr, arraySize);
+    // findLargestNumebrInArray(arr, arraySize);
 
     // --------- Reverse Array ----------------
-    reverseArray(arr, arraySize);
+    // reverseArray(arr, arraySize);
 
     // --------- Array is Shorted? ------------
-    checkArrayIsSorted(arr, arraySize);
+    // checkArrayIsSorted(arr, arraySize);
 
     // Find the second largest element
-    findTheSecondLargestNumber(arr, arraySize);
+    // findTheSecondLargestNumber(arr, arraySize);
 
     // Move all the zeros to the end 
     // moveAllZerosToTheEnd(arr, arraySize);
 
     // Move Array by value k
-    rotateArrayByK(arr, arraySize, 3);
+    rotateArrayByK(arr, arraySize, 1);
 
 
 

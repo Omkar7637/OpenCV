@@ -127,7 +127,7 @@ void rotateArrayByK(int* arr, int size, int k)
     {
         int firstElement = arr[0];
     
-        for(int i = 0; i < size - 1; i++)
+        for(int i = 0; i < size; i++)
         {
             arr[i] = arr[i + 1];
         }
