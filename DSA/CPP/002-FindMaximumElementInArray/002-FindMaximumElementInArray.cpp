@@ -6,7 +6,7 @@ int main()
 {
     // ==================== VARIBLE DECLARTIONS ==================
     // Size of the Array
-    int arraySize = 10;
+    int arraySize = 20;
 
     // Origianl Array for Operations
     int arr[arraySize] = { 9, 5, 13, 2, 5, 8, 5, 3, 6, 8};
@@ -28,6 +28,8 @@ int main()
 
     // Find the second largest element
     findTheSecondLargestNumber(arr, arraySize);
+
+    // Move all the zeros to the end 
 
 
 

@@ -94,6 +94,13 @@ void findTheSecondLargestNumber(int* arr,int size)
     {
         std::cout << "Second largest element does not exists!!!" << std::endl;
     }
+    else
+    {
+        std::cout << "Second Largest Element: " << secondLargestElement << std::endl;
+    }
+}
 
-    std::cout << "Second Largest Element: " << secondLargestElement << std::endl;
+void moveAllZerosToTheEnd(int* arr, int size)
+{
+    
 }

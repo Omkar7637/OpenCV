@@ -15,5 +15,7 @@ void reverseArray(int* arr, int size);
 bool checkArrayIsSorted(int* arr, int size);
 // Find second largest element
 void findTheSecondLargestNumber(int* arr,int size);
+// Move all zeros to the end
+void moveAllZerosToTheEnd(int* arr, int size);
 
 #endif
