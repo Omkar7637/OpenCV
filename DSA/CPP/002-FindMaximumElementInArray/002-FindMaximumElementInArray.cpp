@@ -26,6 +26,10 @@ int main()
     // --------- Array is Shorted? ------------
     checkArrayIsSorted(arr, arraySize);
 
+    // Find the second largest element
+    findTheSecondLargestNumber(arr, arraySize);
+
+
 
     // Exit With Success
     return(EXIT_SUCCESS);

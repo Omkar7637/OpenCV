@@ -55,7 +55,10 @@ void findLargestNumebrInArray(int *arr, int size)
 // Array is Sorted
 void checkArrayIsSorted(int* arr, int size)
 {
+    // Variable declarations
     int count = 0;
+
+    // Code
     for(int i = 0; i < size - 1 ; i++)
     {
         if(arr[i] <= arr[i + 1])
@@ -75,5 +78,15 @@ void checkArrayIsSorted(int* arr, int size)
 
 void findTheSecondLargestNumber(int* arr,int size)
 {
-    
+    // Varibel declarations
+    int secondLargestElement = 0;
+    secondLargestElement = arr[0];
+    int firstLargestElement = arr[0];
+    for(int i = 1; i < size; i++)
+    {
+        if(arr[i] > arr[i-1])
+        {
+            secondLargestElement = arr[i]
+        }
+    }
 }
