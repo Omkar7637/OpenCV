@@ -53,7 +53,7 @@ void findLargestNumebrInArray(int *arr, int size)
 }
 
 // Array is Sorted
-void checkArrayIsSorted(int* arr, int size)
+bool checkArrayIsSorted(int* arr, int size)
 {
     // Variable declarations
     int count = 0;
@@ -68,12 +68,13 @@ void checkArrayIsSorted(int* arr, int size)
             if(count == 1)
             {
                 std::cout << "Array is not shorted" << std::endl;
-                return;
+                return 0;
             }
         }
     }
 
     std::cout << "Array is sorted!!!" << std::endl;
+    return 1;
 }
 
 void findTheSecondLargestNumber(int* arr,int size)
@@ -84,16 +85,23 @@ void findTheSecondLargestNumber(int* arr,int size)
     int firstLargestElement = arr[0];
 
     // Sort array
-    for(int i = 0; i < size; i++)
+    if(checkArrayIsSorted(arr, size))
     {
-        for(int j = 0; j < size ; j++)
+        for(int i = 0; i < size; i++)
         {
-            if(arr[i] > arr[j])
+            for(int j = 0; j < size ; j++)
             {
-                
+                if(arr[i] > arr[j])
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
             }
         }
     }
+
+    showArray(arr, size);
 
     // Second largest elemnt in array
     for(int i = 1; i < size; i++)
