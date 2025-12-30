@@ -7,7 +7,7 @@ void findLargestNumebrInArray(int *arr, int size)
     
     // Code
     std::cout << std::endl << "Largest Number in Array:";
-    for(int i = 1; i < size; i++)
+    for(int i = 1; i < sizeof(arr); i++)
     {
         if(largestnumber < arr[i])
         {
@@ -21,6 +21,7 @@ void findLargestNumebrInArray(int *arr, int size)
 // Show All Elements of array
 void showArray(int *arr, int size)
 {
+    // Code
     std::cout << std::endl;
     std::cout << "All Array Elementes:";
     for(int i = 0; i < size; i++)

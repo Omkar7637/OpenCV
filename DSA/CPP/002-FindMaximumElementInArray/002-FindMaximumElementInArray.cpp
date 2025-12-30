@@ -1,4 +1,7 @@
+// =================== HEADER FILES ======================
 #include "002-FindMaximumElementInArray.hpp"
+
+// =================== MAIN FUNCTION (ENTRY POINT FUNCTION ======================
 int main()
 {
     // ==================== VARIBLE DECLARTIONS ==================
@@ -18,6 +21,7 @@ int main()
     findLargestNumebrInArray(arr, arraySize);
 
 
+    // Exit With Success
     return(EXIT_SUCCESS);
 }
 
