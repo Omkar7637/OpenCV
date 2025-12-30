@@ -1,5 +1,4 @@
-#include<iostream>
-
+#include "002-FindMaximumElementInArray.hpp"
 int main()
 {
     int arr[10] = { 9, 5, 3, 2, 5, 8, 5, 3, 6, 8};

@@ -12817,3 +12817,10 @@ To github.com:Omkar7637/OpenCV.git
  create mode 100644 DSA/CPP/002-FindMaximumElementInArray.cpp
 To github.com:Omkar7637/OpenCV.git
    b4869aa..48e01ac  main -> main
+[main 21f3d41] Auto update: 2025-12-30 11:55:01
+ 4 files changed, 22 insertions(+), 5 deletions(-)
+ rename DSA/CPP/{ => 002-FindMaximumElementInArray}/002-FindMaximumElementInArray.cpp (59%)
+ create mode 100644 DSA/CPP/002-FindMaximumElementInArray/002-FindMaximumElementInArray.hpp
+ create mode 100644 DSA/CPP/002-FindMaximumElementInArray/func.cpp
+To github.com:Omkar7637/OpenCV.git
+   48e01ac..21f3d41  main -> main
