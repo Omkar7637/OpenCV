@@ -55,19 +55,25 @@ void findLargestNumebrInArray(int *arr, int size)
 // Array is Sorted
 void checkArrayIsSorted(int* arr, int size)
 {
-    bool flagshort = false;
     int count = 0;
     for(int i = 0; i < size - 1 ; i++)
     {
-        if(arr[i] > arr[i + 1])
+        if(arr[i] <= arr[i + 1])
         {
-            flagshort = true;
             count++;
             
             if(count == 1)
             {
                 std::cout << "Array is not shorted" << std::endl;
+                return;
             }
         }
     }
+
+    std::cout << "Array is sorted!!!" << std::endl;
+}
+
+void findTheSecondLargestNumber(int* arr,int size)
+{
+    
 }

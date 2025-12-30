@@ -13,5 +13,6 @@ void showArray(int *arr, int size);
 void reverseArray(int* arr, int size); 
 // Array is sorted?
 void checkArrayIsSorted(int* arr, int size);
+// 
 
 #endif
