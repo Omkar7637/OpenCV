@@ -55,62 +55,44 @@ void findLargestNumebrInArray(int *arr, int size)
 // Array is Sorted
 bool checkArrayIsSorted(int* arr, int size)
 {
-    // Variable declarations
-    int count = 0;
-
     // Code
     for(int i = 0; i < size - 1 ; i++)
     {
-        if(arr[i] <= arr[i + 1])
+        if(arr[i] > arr[i + 1])
         {
-            count++;
-            
-            if(count == 1)
-            {
-                std::cout << "Array is not shorted" << std::endl;
-                return 0;
-            }
+            std::cout << "Array is not shorted" << std::endl;
+            return false;
         }
     }
 
     std::cout << "Array is sorted!!!" << std::endl;
-    return 1;
+    return true;
 }
 
 void findTheSecondLargestNumber(int* arr,int size)
 {
     // Varibel declarations
     int secondLargestElement = 0;
-    secondLargestElement = arr[0];
-    int firstLargestElement = arr[0];
-
-    // Sort array
-    if(checkArrayIsSorted(arr, size))
-    {
-        for(int i = 0; i < size; i++)
-        {
-            for(int j = 0; j < size ; j++)
-            {
-                if(arr[i] > arr[j])
-                {
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-    }
-
-    showArray(arr, size);
+    secondLargestElement = -1;
+    int firstLargestElement = -1;
 
     // Second largest elemnt in array
-    for(int i = 1; i < size; i++)
+    for(int i = 0; i < size; i++)
     {
-        if(firstLargestElement < arr[i])
+        if(arr[i] > firstLargestElement)
         {
             secondLargestElement = firstLargestElement;
             firstLargestElement = arr[i];
         }
+        else if(arr[i] < firstLargestElement && arr[i] > secondLargestElement)
+        {
+            secondLargestElement = arr[i];
+        }
+    }
+
+    if(secondLargestElement == -1)
+    {
+        std::cout << "Second largest element does not exists!!!" << std::endl;
     }
 
     std::cout << "Second Largest Element: " << secondLargestElement << std::endl;
