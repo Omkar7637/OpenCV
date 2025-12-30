@@ -1,4 +1,12 @@
 // ================== FUNCTION DEFINATIONS ======================
+
+// Rverse Array
+void reverseArray(int* arr, int size)
+{
+    int 
+}
+
+
 // Find largest element in array 
 void findLargestNumebrInArray(int *arr, int size)
 {
@@ -7,7 +15,7 @@ void findLargestNumebrInArray(int *arr, int size)
     
     // Code
     std::cout << std::endl << "Largest Number in Array:";
-    for(int i = 1; i < sizeof(arr); i++)
+    for(int i = 1; i < size; i++)
     {
         if(largestnumber < arr[i])
         {
@@ -23,7 +31,7 @@ void showArray(int *arr, int size)
 {
     // Code
     std::cout << std::endl;
-    std::cout << "All Array Elementes:";
+    std::cout << "All Array Elementes: ";
     for(int i = 0; i < size; i++)
     {
         std::cout << " " << arr[i];
