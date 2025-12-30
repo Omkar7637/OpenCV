@@ -21,7 +21,7 @@ int main()
     findLargestNumebrInArray(arr, arraySize);
 
     // --------- Reverse Array ----------------
-    reverseArray(arr, arraySize);
+    // reverseArray(arr, arraySize);
 
     // --------- Array is Shorted? ------------
     checkArrayIsSorted(arr, arraySize);

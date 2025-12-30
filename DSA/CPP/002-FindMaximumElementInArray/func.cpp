@@ -82,16 +82,28 @@ void findTheSecondLargestNumber(int* arr,int size)
     int secondLargestElement = 0;
     secondLargestElement = arr[0];
     int firstLargestElement = arr[0];
+
+    // Sort array
+    for(int i = 0; i < size; i++)
+    {
+        for(int j = 0; j < size ; j++)
+        {
+            if(arr[i] > arr[j])
+            {
+                
+            }
+        }
+    }
+
+    // Second largest elemnt in array
     for(int i = 1; i < size; i++)
     {
         if(firstLargestElement < arr[i])
         {
+            secondLargestElement = firstLargestElement;
             firstLargestElement = arr[i];
         }
-        else if()
     }
-    std::cout << "First Largest Element: " << firstLargestElement << std::endl;
-
 
     std::cout << "Second Largest Element: " << secondLargestElement << std::endl;
 }
