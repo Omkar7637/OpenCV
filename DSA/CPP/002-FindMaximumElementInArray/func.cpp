@@ -18,11 +18,11 @@ void showArray(int *arr, int size)
 void reverseArray(int* arr, int size)
 {
     int temp;
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < size / 2; i++)
     {
         temp = arr[i];
-        arr[i] = arr[size - i];
-        arr[size - i] = temp;
+        arr[i] = arr[size -1 - i];
+        arr[size -1 - i] = temp;
     }
 
     showArray(arr, size);
@@ -36,7 +36,7 @@ void findLargestNumebrInArray(int *arr, int size)
     int largestnumber = arr[0];
     
     // Code
-    std::cout << std::endl << "Largest Number in Array:";
+    std::cout << std::endl << "Largest Number in Array: ";
     for(int i = 1; i < size; i++)
     {
         if(largestnumber < arr[i])
