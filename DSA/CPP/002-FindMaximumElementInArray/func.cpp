@@ -110,7 +110,14 @@ void moveAllZerosToTheEnd(int* arr, int size)
     {
         if(arr[i] == 0)
         {
-            
+            int moveLast = arr[i];
+            for (int j = i; j < size; j++)
+            {
+                arr[j] = arr[j + 1];
+            }
+            arr[size] = moveLast;
         }
     }
+
+    showArray(arr, size);
 }
