@@ -122,5 +122,15 @@ void moveAllZerosToTheEnd(int* arr, int size)
 
 void rotateArrayByK(int* arr, int size, int k)
 {
+    while(k > 0)
+    {
+        int lastElement = arr[size];
+        for(int i = 0; i < size - 1; i++)
+        {
+            int temp = arr[i];
+            arr[i]
+        }
 
+        k--;
+    }
 }
