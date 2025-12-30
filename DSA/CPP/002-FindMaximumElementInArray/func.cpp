@@ -53,10 +53,21 @@ void findLargestNumebrInArray(int *arr, int size)
 }
 
 // Array is Sorted
-void chekArrayIsSorted(int* arr, int size)
+void checkArrayIsSorted(int* arr, int size)
 {
-    for(int i = 0; i < size; i++)
+    bool flagshort = false;
+    int count = 0;
+    for(int i = 0; i < size - 1 ; i++)
     {
-        
+        if(arr[i] > arr[i + 1])
+        {
+            flagshort = true;
+            count++;
+        }
+    }
+    
+    if(count == 1)
+    {
+        std::cout << "Array is not shorted" << std::endl;
     }
 }

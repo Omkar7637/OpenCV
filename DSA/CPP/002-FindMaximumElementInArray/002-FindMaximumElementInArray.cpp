@@ -23,6 +23,9 @@ int main()
     // --------- Reverse Array ----------------
     reverseArray(arr, arraySize);
 
+    // --------- Array is Shorted? ------------
+    checkArrayIsSorted(arr, arraySize);
+
 
     // Exit With Success
     return(EXIT_SUCCESS);
