@@ -17,7 +17,10 @@ void showArray(int *arr, int size)
 // Rverse Array
 void reverseArray(int* arr, int size)
 {
+    // Variable declarations
     int temp;
+
+    // Code
     for(int i = 0; i < size / 2; i++)
     {
         temp = arr[i];
@@ -25,6 +28,7 @@ void reverseArray(int* arr, int size)
         arr[size -1 - i] = temp;
     }
 
+    // Show Array Elements
     showArray(arr, size);
 }
 
@@ -48,3 +52,11 @@ void findLargestNumebrInArray(int *arr, int size)
     std::cout << largestnumber << std::endl; 
 }
 
+// Array is Sorted
+void chekArrayIsSorted(int* arr, int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        
+    }
+}

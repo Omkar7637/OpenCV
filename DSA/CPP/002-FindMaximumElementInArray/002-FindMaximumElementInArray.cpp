@@ -20,7 +20,7 @@ int main()
     // Function call for find largest element in Array
     findLargestNumebrInArray(arr, arraySize);
 
-    // Reverse Array
+    // --------- Reverse Array ----------------
     reverseArray(arr, arraySize);
 
 
