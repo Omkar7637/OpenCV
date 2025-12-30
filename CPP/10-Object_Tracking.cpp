@@ -1,26 +1,26 @@
 /******************************************************************************
- *  File Name   : camera_capture.cpp
- *  Description : Real-time CSI camera capture using OpenCV and GStreamer.
- *                This application captures frames from the Jetson Nano CSI
- *                camera, processes them using OpenCV, and displays the output.
- *
- *  Author      : Omkar Ankush Kashid
- *  Created On  : 19-12-2025
- *  Last Update : 29-12-2025
- *
- *  Platform    : NVIDIA Jetson Nano Super 8GB
- *  OS          : Ubuntu (JetPack)
- *  Language    : C++
- *  Framework   : OpenCV 4.x, GStreamer
- *
- *  Version     : 1.0.0
- *
- *  Notes       :
- *  - Uses nvarguscamerasrc for CSI camera access.
- *  - Requires OpenCV built with GStreamer support.
- *  - Designed for embedded vision applications.
- *
- ******************************************************************************/
+*  File Name   : camera_capture.cpp
+*  Description : Real-time CSI camera capture using OpenCV and GStreamer.
+*                This application captures frames from the Jetson Nano CSI
+*                camera, processes them using OpenCV, and displays the output.
+*
+*  Author      : Omkar Ankush Kashid
+*  Created On  : 19-12-2025
+*  Last Update : 29-12-2025
+*
+*  Platform    : NVIDIA Jetson Nano Super 8GB
+*  OS          : Ubuntu (JetPack)
+*  Language    : C++
+*  Framework   : OpenCV 4.x, GStreamer
+*
+*  Version     : 1.0.0
+*
+*  Notes       :
+*  - Uses nvarguscamerasrc for CSI camera access.
+*  - Requires OpenCV built with GStreamer support.
+*  - Designed for embedded vision applications.
+*
+******************************************************************************/
 
 // ===================== Header Files ===========================================
 // 
