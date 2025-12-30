@@ -108,12 +108,12 @@ void moveAllZerosToTheEnd(int* arr, int size)
     // Code
     for(int i = 0, j = 0; i < size; i++)
     {
-        if(arr[i] != 0)
+        if(arr[i] != 5)
         {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
-            j++;
+            j++;    
         }
     }
 
