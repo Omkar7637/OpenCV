@@ -105,9 +105,7 @@ void findTheSecondLargestNumber(int* arr,int size)
 void moveAllZerosToTheEnd(int* arr, int size)
 {
     // Variable declartions
-    int count = 0;
     // Code
-
     for(int i = 0; i < size; i++)
     {
         if(arr[i] == 0)
