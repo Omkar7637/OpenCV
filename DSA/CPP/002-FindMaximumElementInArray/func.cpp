@@ -106,20 +106,17 @@ void moveAllZerosToTheEnd(int* arr, int size)
 {
     // Variable declartions
     // Code
-    for(int i = 0; i < size; i++)
+    for(int i = 0, j = 0; i < size; i++)
     {
-        if(arr[i] == 0)
+        if(arr[i] != 0)
         {
-            int moveLast = arr[i];
-            for (int j = i; j < size - 1; j++)
-            {
-                arr[j] = arr[j + 1];
-            }
-            arr[size - 1] = moveLast;
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            j++;
         }
     }
 
     showArray(arr, size);
 }
 
-std::swap;
