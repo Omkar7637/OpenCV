@@ -1,17 +1,10 @@
 #include "002-FindMaximumElementInArray.hpp"
 int main()
 {
-    int arr[10] = { 9, 5, 3, 2, 5, 8, 5, 3, 6, 8};
+    int arraySize = 10;
+    int arr[arraySize] = { 9, 5, 3, 2, 5, 8, 5, 3, 6, 8};
 
-    std::cout << "\n\n";
-
-    std::cout << "Array:";
-    for(int i = 0; i < 10; i++)
-    {
-        std::cout << " " << arr[i];
-    }
-
-    std::cout << "\n";
+    showArray(arr, arraySize);
 
     int largenumber = arr[0];
 
