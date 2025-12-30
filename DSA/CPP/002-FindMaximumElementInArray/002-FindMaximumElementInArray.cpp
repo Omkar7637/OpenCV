@@ -30,10 +30,10 @@ int main()
     findTheSecondLargestNumber(arr, arraySize);
 
     // Move all the zeros to the end 
-    moveAllZerosToTheEnd(arr, arraySize);
+    // moveAllZerosToTheEnd(arr, arraySize);
 
     // Move Array by value k
-    rotateArrayByK(arr, arraySize, 2);
+    rotateArrayByK(arr, arraySize, 3);
 
 
 
