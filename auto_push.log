@@ -12812,3 +12812,8 @@ To github.com:Omkar7637/OpenCV.git
  rename DSA/{ => CPP}/001-test.cpp (100%)
 To github.com:Omkar7637/OpenCV.git
    30a0925..b4869aa  main -> main
+[main 48e01ac] Auto update: 2025-12-30 11:50:01
+ 2 files changed, 35 insertions(+)
+ create mode 100644 DSA/CPP/002-FindMaximumElementInArray.cpp
+To github.com:Omkar7637/OpenCV.git
+   b4869aa..48e01ac  main -> main

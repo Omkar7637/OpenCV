@@ -14,17 +14,22 @@ int main()
 
     std::cout << "\n";
 
-    int largenumber = 0;
+    int largenumber = arr[0];
 
-    for(int i = 0; i < 10; i++)
+    for(int i = 1; i < 10; i++)
     {
-        if()
+        if(largenumber < arr[i])
+        {
+            largenumber = arr[i];
+        }
     }
 
-    std::cout << "Larges elemnet in Array:";
+    std::cout << "Larges elemnet in Array: " << largenumber;
+
 
     std::cout << "\n\n";
 
 
     return(EXIT_SUCCESS);
 }
+
