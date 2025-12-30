@@ -108,7 +108,7 @@ void moveAllZerosToTheEnd(int* arr, int size)
     // Code
     for(int i = 0, j = 0; i < size; i++)
     {
-        if(arr[i] != 5)
+        if(arr[i] != 0)
         {
             int temp = arr[i];
             arr[i] = arr[j];
@@ -120,3 +120,7 @@ void moveAllZerosToTheEnd(int* arr, int size)
     showArray(arr, size);
 }
 
+void rotateArrayByK(int* arr, int size, int k)
+{
+
+}

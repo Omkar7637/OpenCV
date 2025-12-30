@@ -17,5 +17,7 @@ bool checkArrayIsSorted(int* arr, int size);
 void findTheSecondLargestNumber(int* arr,int size);
 // Move all zeros to the end
 void moveAllZerosToTheEnd(int* arr, int size);
+// Rotate Array by K value
+void rotateArrayByK(int* arr, int size, int k);
 
 #endif
