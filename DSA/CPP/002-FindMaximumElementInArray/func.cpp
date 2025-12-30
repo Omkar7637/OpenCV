@@ -111,11 +111,11 @@ void moveAllZerosToTheEnd(int* arr, int size)
         if(arr[i] == 0)
         {
             int moveLast = arr[i];
-            for (int j = i; j < size; j++)
+            for (int j = i; j < size - 1; j++)
             {
                 arr[j] = arr[j + 1];
             }
-            arr[size] = moveLast;
+            arr[size - 1] = moveLast;
         }
     }
 
