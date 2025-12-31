@@ -1,5 +1,5 @@
 // =================== HEADER FILES ======================
-#include "002-FindMaximumElementInArray.hpp"
+#include "002-Array.hpp"
 
 // =================== MAIN FUNCTION (ENTRY POINT FUNCTION ======================
 int main()
