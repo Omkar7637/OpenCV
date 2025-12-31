@@ -9,7 +9,7 @@ int main()
     int arraySize = 20;
 
     // Origianl Array for Operations
-    int arr[arraySize] = { 0, 9, 0, 5, 0, 13, 2, 5, 0, 8, 5, 3, 6, 8, 54, 12, 45, 78, 23, 67};
+    int arr[arraySize] = { 1, 9, 2, 5, 0, 13, 2, 5, 0, 8, 5, 3, 6, 8, 54, 12, 45, 78, 23, 67};
 
 
     // ================ CODE =================
@@ -33,7 +33,7 @@ int main()
     // moveAllZerosToTheEnd(arr, arraySize);
 
     // Move Array by value k
-    rotateArrayByK(arr, arraySize, 1);
+    rotateArrayByK(arr, arraySize, 3);
 
 
 
