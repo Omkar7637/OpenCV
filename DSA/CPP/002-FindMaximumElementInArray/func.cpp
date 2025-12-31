@@ -113,7 +113,7 @@ void moveAllZerosToTheEnd(int* arr, int size)
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
-            j++;    
+            j++;
         }
     }
     showArray(arr, size);

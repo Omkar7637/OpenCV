@@ -13854,3 +13854,9 @@ To github.com:Omkar7637/OpenCV.git
  2 files changed, 5 insertions(+), 1 deletion(-)
 To github.com:Omkar7637/OpenCV.git
    0ad8e27..db3f7d1  main -> main
+[main 3396269] Auto update: 2025-12-31 09:20:01
+ 4 files changed, 7 insertions(+), 3 deletions(-)
+ rename DSA/CPP/002-FindMaximumElementInArray/{002-FindMaximumElementInArray.cpp => 002-Array.cpp} (96%)
+ rename DSA/CPP/002-FindMaximumElementInArray/{002-FindMaximumElementInArray.hpp => 002-Array.hpp} (100%)
+To github.com:Omkar7637/OpenCV.git
+   db3f7d1..3396269  main -> main
