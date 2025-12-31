@@ -73,14 +73,14 @@ void findTheSecondLargestNumber(int* arr,int size)
 {
     // Varibel declarations
     int secondLargestElement = 0;
-    secondLargestElement = -1;
-    int firstLargestElement = -1;
+    secondLargestElement = INT_MIN;
+    int firstLargestElement = INT_MIN;
 
     // Code
     // Check the array is empty
     if(size < 0)
     {
-        std::cout << "Array is empty!!!" << std::endl;
+        std::cout << "Second largest element dows not existes!!" << std::endl;
         return;
     }
     // Second largest elemnt in array
@@ -98,7 +98,7 @@ void findTheSecondLargestNumber(int* arr,int size)
     }
 
     // Show Output
-    if(secondLargestElement == -1)
+    if(secondLargestElement == INT_MIN)
     {
         std::cout << "Second largest element does not exists!!!" << std::endl;
     }
