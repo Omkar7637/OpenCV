@@ -116,7 +116,6 @@ void moveAllZerosToTheEnd(int* arr, int size)
             j++;    
         }
     }
-
     showArray(arr, size);
 }
 
@@ -131,7 +130,7 @@ void rotateArrayByK(int* arr, int size, int k)
         {
             arr[i] = arr[i + 1];
         }
-        arr[size] = firstElement;
+        arr[size - 1] = firstElement;
         k--;
     }
 
