@@ -77,6 +77,12 @@ void findTheSecondLargestNumber(int* arr,int size)
     int firstLargestElement = -1;
 
     // Code
+    // Check the array is empty
+    if(size < 0)
+    {
+        std::cout << "Array is empty!!!" << std::endl;
+        return;
+    }
     // Second largest elemnt in array
     for(int i = 0; i < size; i++)
     {
