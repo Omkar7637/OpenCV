@@ -24,9 +24,11 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "✅ Build successful"
+echo "============================== Build successful =============================="
 
 # Run
 ./"$OUT"
 
 rm $OUT
+
+echo "============================== Done =============================="
