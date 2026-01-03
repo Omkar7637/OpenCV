@@ -102,6 +102,8 @@ int main()
         cv::CAP_GSTREAMER
     );
 
+    std::cout << " \n----- Camera Pipeline Working -----" << std::endl;
+
     // ================== CAMERA ACCESS CHECK ==========================================
     //
     //  - GStreamer pipeline creation
@@ -114,6 +116,9 @@ int main()
         std::cout << "Camera Not supported!" << std::endl;
         return -1; // Exit program safely
     }
+
+    std::cout << " \n----- Camera Access Working -----" << std::endl;
+
 
     // =============== Pipeline Breakdown==================
     //
@@ -139,6 +144,9 @@ int main()
 
     cv::namedWindow("Camera", cv::WINDOW_NORMAL);
     cv::setWindowProperty("Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
+
+    std::cout << " \n----- Fullscreen Window Created -----" << std::endl;
+
 
     // OpenCV Variables
     cv::Mat frame, gray, binary, morph;
@@ -173,7 +181,12 @@ int main()
         cv::Size(5, 5)
     );
 
+    std::cout << " \n----- Kernal created -----" << std::endl;
+
+
     //------------------------------------------------------------------------
+
+    std::cout << " \n----- Camera Pipeline Working -----" << std::endl;
 
 
     // While loop for video each frame scanning
