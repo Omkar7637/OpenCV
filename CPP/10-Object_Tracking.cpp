@@ -102,7 +102,7 @@ int main()
         cv::CAP_GSTREAMER
     );
 
-    std::cout << " \n----- Camera Pipeline Working -----" << std::endl;
+    std::cout << " \n----- IGV::Camera Pipeline Working -----" << std::endl;
 
     // ================== CAMERA ACCESS CHECK ==========================================
     //
@@ -117,7 +117,7 @@ int main()
         return -1; // Exit program safely
     }
 
-    std::cout << " \n----- Camera Access Working -----" << std::endl;
+    std::cout << " \n----- IGV::Camera Access Working -----" << std::endl;
 
 
     // =============== Pipeline Breakdown==================
@@ -145,7 +145,7 @@ int main()
     cv::namedWindow("Camera", cv::WINDOW_NORMAL);
     cv::setWindowProperty("Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
 
-    std::cout << " \n----- Fullscreen Window Created -----" << std::endl;
+    std::cout << " \n----- IGV::Fullscreen Window Created -----" << std::endl;
 
 
     // OpenCV Variables
@@ -181,12 +181,12 @@ int main()
         cv::Size(5, 5)
     );
 
-    std::cout << " \n----- Kernal created -----" << std::endl;
+    std::cout << " \n----- IGV::Kernal created -----" << std::endl;
 
 
     //------------------------------------------------------------------------
 
-    std::cout << " \n----- Camera Pipeline Working -----" << std::endl;
+    std::cout << " \n----- IGV::Entering While Loop -----" << std::endl;
 
 
     // While loop for video each frame scanning
@@ -438,8 +438,12 @@ int main()
         if(cv::waitKey(1) == 27) break;
     }
 
+    std::cout << " \n----- IGV::Exiting While Loop -----" << std::endl;
+
+
     
     
+    std::cout << " \n----- IGV::Exiting Code -----" << std::endl;
 
     return 0;
 }
