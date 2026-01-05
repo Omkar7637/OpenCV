@@ -81,6 +81,7 @@ int main()
     while(true)
     {
         // Take Single frame
+        // Camera -> frame
         cap >> frame;
 
         // Check if frame is empty
@@ -90,13 +91,22 @@ int main()
             return(EXIT_FAILURE); 
         }
 
-        // If Frame recived move forward
-        // Convert color image (BGR Format) into a grayscale
+        // Step 1.Convert color image (BGR Format) into a grayscale
+        // frame -> grayscale
         cv::cvtColor(
-            frame, // Input: Original BGR image from camera
-            gray, // Output: Single-cahnnel (Grayscale image)
-            cv::COLOR_BGR2GRAY // Conversion type: BGR -> Grayscale
+            frame,                  // Input: Original BGR image from camera
+            gray,                   // Output: Single-cahnnel (Grayscale image)
+            cv::COLOR_BGR2GRAY      // Conversion type: BGR -> Grayscale
         );
+
+        // Step 2.Apply Gaussian Blur to the Grayscale image
+        // Grayscale -> Gaussian Blur
+        cv::GaussianBlur(
+            gray,                   // Input: grayscale image
+            gray,                   // Output: Same image overwritten (in-place)
+            cv::Size(5, 5),         // 5x5 Gaussian kernal 
+            0 // Auto calculate Sigma
+        )
     }
 
 
