@@ -105,8 +105,12 @@ int main()
             gray,                   // Input: grayscale image
             gray,                   // Output: Same image overwritten (in-place)
             cv::Size(5, 5),         // 5x5 Gaussian kernal 
-            0 // Auto calculate Sigma
-        )
+            0                       // Auto calculate Sigma
+        );
+
+        // Step 3.Apply thershold to convert a grayscale image a binary image
+        // Gaussian blur -> Thersholding
+
     }
 
 
