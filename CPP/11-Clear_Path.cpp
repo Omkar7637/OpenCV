@@ -20,7 +20,9 @@
 
 int main()
 {
-    // Local Variable declaartions
+    // Local Variable declartions
+    // OpenCV realted Variables
+    cv::Mat frame, gray, binary, morph;
 
     // Code
 
@@ -61,7 +63,7 @@ int main()
     std::cout <<  "----- IGV::Camera Working -----" << std::endl;
 
     std::cout << "===================================================" << std::endl;
-    std::cout << "\n----- Pipeline -----" << std::endl;
+    std::cout << "\n----- IGV::Pipeline -----" << std::endl;
     std::cout << "CSI Camera Sensor\n       |       \nnvarguscamerasrc\n       |       \nNVMM (GPU Memory)\n       |       \nnvvidconv (HW Accelearted)\n       |       \n      BGRx\n       |       \nvideoconvertor (CPU)\n       |       \n    appsink\n       |       \nOpenCV cv::Mat\n" << std::endl;
     std::cout << "===================================================" << std::endl;
 
@@ -69,9 +71,24 @@ int main()
     // CSI Camera Sensor -> nvarguscamerasrc -> NVMM (GPU Memory) -> nvvidcon (HW Accelerated) -> BGRx -> videconvert (CPU) -> BGR -> appsink -> OpenCV cv::Mat 
 
     // Creating Full Screen Winodw to show output
-    std::cout << "----- Window Creation -----" << std::endl;
+    std::cout << "----- IGV::Window Creation -----" << std::endl;
     cv::namedWindow("IGV-Camera", cv::WINDOW_NORMAL);
     cv::setWindowProperty("IGV-Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
+    std::cout << "----- IGV::Window Created -----" << std::endl;
+
+    // While Loop for Video Each Frame Scanning
+    std::cout << "----- Entering While Loop -----" << std::endl;
+    while(true)
+    {
+        // Take Single frame
+        cap >> frame;
+
+        // Check if frame is empty
+        if(frame.empty())
+        {
+            
+        }
+    }
 
 
 
