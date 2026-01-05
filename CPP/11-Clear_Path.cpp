@@ -22,7 +22,7 @@ int main()
 {
     // Local Variable declartions
     // OpenCV realted Variables
-    cv::Mat frame, gray, binary, morph;
+    cv::Mat frame, gray, binary, roi;
 
     // Code
 
@@ -110,6 +110,15 @@ int main()
 
         // Step 3.Apply thershold to convert a grayscale image a binary image
         // Gaussian blur -> Thersholding
+        // This converts | 0(Black) | 255(White)
+        cv::threshold(
+            gray, // Input Grayscale Image 
+            binary, // Output Binary Image
+            0, // Thershold value (not used by OTSU)
+            255, // Maximum Value for THRESH_BINARY
+            cv::THRESH_BINARY | // Binary thersholding 
+            cv::THRESH_OTSU // Automatically calculates best thershold
+        );
 
     }
 
