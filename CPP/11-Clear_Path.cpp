@@ -71,10 +71,10 @@ int main()
     // CSI Camera Sensor -> nvarguscamerasrc -> NVMM (GPU Memory) -> nvvidcon (HW Accelerated) -> BGRx -> videconvert (CPU) -> BGR -> appsink -> OpenCV cv::Mat 
 
     // Creating Full Screen Winodw to show output
-    std::cout << "----- IGV::Window Creation -----" << std::endl;
-    cv::namedWindow("IGV-Camera", cv::WINDOW_NORMAL);
-    cv::setWindowProperty("IGV-Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
-    std::cout << "----- IGV::Window Created -----" << std::endl;
+    // std::cout << "----- IGV::Window Creation -----" << std::endl;
+    // cv::namedWindow("IGV-Camera", cv::WINDOW_NORMAL);
+    // cv::setWindowProperty("IGV-Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
+    // std::cout << "----- IGV::Window Created -----" << std::endl;
 
     // While Loop for Video Each Frame Scanning
     std::cout << "----- IGV::Entering While Loop -----" << std::endl;
@@ -119,6 +119,10 @@ int main()
             cv::THRESH_BINARY | // Binary thersholding 
             cv::THRESH_OTSU // Automatically calculates best thershold
         );
+
+        // Step 4.Define ROI
+        // ROI = Region of Interest 
+        // Insted of processing thr entire image, we process only a spacific region
 
     }
 
