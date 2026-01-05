@@ -46,6 +46,19 @@ int main()
         cv::CAP_GSTREAMER // Force OpenCV to use the GStreamer backend | Mandatory when passing a GStreamer pipeline string  
     );
 
-    std::cout << "----- IGV::Camera Piepline "
+    std::cout << "----- IGV::Camera Piepline Successfully intialized -----" << std::endl;
+
+    // =============== Camera Access Check ===============
+    //
+    // - GStrame Pipeline creation | Camera avilabilty 
+    // - Successful negotiation of caps (resolution, FPS, Format)
+
+    if(!cap.isOpened()) // If any element in the pipeline fails, this return false
+    {
+        std::cout << "----- Camera Not Supported!! -----" << std::endl;
+        return (EXIT_FAILURE); // Exit Program safely
+    }
+
+    std::cout <<  "----- IGV::Camera Working -----"
 
 }
