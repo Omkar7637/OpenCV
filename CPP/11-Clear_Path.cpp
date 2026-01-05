@@ -112,17 +112,30 @@ int main()
         // Gaussian blur -> Thersholding
         // This converts | 0(Black) | 255(White)
         cv::threshold(
-            gray, // Input Grayscale Image 
-            binary, // Output Binary Image
-            0, // Thershold value (not used by OTSU)
-            255, // Maximum Value for THRESH_BINARY
-            cv::THRESH_BINARY | // Binary thersholding 
-            cv::THRESH_OTSU // Automatically calculates best thershold
+            gray,                   // Input Grayscale Image 
+            binary,                 // Output Binary Image
+            0,                      // Thershold value (not used by OTSU)
+            255,                    // Maximum Value for THRESH_BINARY
+            cv::THRESH_BINARY |     // Binary thersholding 
+            cv::THRESH_OTSU         // Automatically calculates best thershold
         );
 
         // Step 4.Define ROI
         // ROI = Region of Interest 
         // Insted of processing thr entire image, we process only a spacific region
+        // Here: The bottom half of the image (where the robot path is expected)
+
+        int h = binary.rows; // Total height of the binary image (In pixels)
+        int w = binary.cols; // Total width of the binary image (In Pixels)
+
+        // Create ROI using cv::react
+        // cv::Rect(x, y, width, height)
+        roi = binary(cv::Rect(
+            0, // 
+            h/2,
+            w,
+            h/2));
+ 
 
     }
 
