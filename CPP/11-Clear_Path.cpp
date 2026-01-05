@@ -35,7 +35,7 @@ int main()
         "nvarguscamerasrc !" // Direct interface to the navidia driver (Most setting Auto)
         
         "video/x-raw(memory:NVMM)," // NVIDIA Multimedia memory | Critical for the High FPS/Low Latency/AI Interface Pipelines
-        "width=1920, height=1080, frame=60/1 ! "
+        "width=640, height=480, frame=60/1 ! "
         "nvvidconv !" // Uses jetson hardware | Much faster than videconverter | Converter: memory layout/color formats/resolution
         "video/x-raw, format=BGRx !" // BGR + unused alpha channel required videoconverter works efficently with BGRx 
         " videoconvert !" // CPU-based color format converter | converts BGRx -> BGR | OpenCV expects BGR format
@@ -148,6 +148,6 @@ int main()
 
     std::cout << "----- IGV::Exiting While Loop -----" << std::endl;
 
-    std::cout 
+    std::cout << "----- Exiting Sucessfully -----" << std::endl;
     return(EXIT_SUCCESS);
 }
