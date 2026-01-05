@@ -131,14 +131,23 @@ int main()
         // Create ROI using cv::react
         // cv::Rect(x, y, width, height)
         roi = binary(cv::Rect(
-            0, // 
-            h/2,
-            w,
-            h/2));
- 
+            0,                      // Start from left edge
+            h/2,                    // Start from middle vertically
+            w,                      // full width
+            h/2                     // bottom half of the image
+        )); 
 
+        // Show results
+        cv::imshow("Origianl", frame);
+        cv::imshow("Binary", binary);
+        cv::imshow("ROI (Path Area)", roi);
+
+        if(cv::waitKey(1) == 27) // Waits 1 millisecond | Allows window refresh | Return ASCII value of pressed key
+            break;
     }
 
+    std::cout << "----- IGV::Exiting While Loop -----" << std::endl;
 
-
+    std::cout 
+    return(EXIT_SUCCESS);
 }
