@@ -43,7 +43,6 @@ int main()
         // ====== BackEnd Selection ======
         cv::CAP_GSTREAMER // Force OpenCV to use the GStreamer backend | Mandatory when passing a GStreamer pipeline string  
 
-        
     );
 
     std::cout << "----- IGV::Camera Piepline Successfully intialized -----" << std::endl;
@@ -66,14 +65,14 @@ int main()
     std::cout << "CSI Camera Sensor\n       |       \nnvarguscamerasrc\n       |       \nNVMM (GPU Memory)\n       |       \nnvvidconv (HW Accelearted)\n       |       \n      BGRx\n       |       \nvideoconvertor (CPU)\n       |       \n    appsink\n       |       \nOpenCV cv::Mat\n" << std::endl;
     std::cout << "===================================================" << std::endl;
 
-    /*
-        Pipeline Breakdown
-                
-        CSI Camera Sensor -> nvarguscamerasrc -> NVMM (GPU ) 
-            
-    
-    
-    */
+    // Pipeline Breakdown
+    // CSI Camera Sensor -> nvarguscamerasrc -> NVMM (GPU Memory) -> nvvidcon (HW Accelerated) -> BGRx -> videconvert (CPU) -> BGR -> appsink -> OpenCV cv::Mat 
+
+    // Creating Full Screen Winodw to show output
+    std::cout << "----- Window Creation -----" << std::endl;
+    cv::namedWindow("IGV-Camera", cv::WINDOW_NORMAL);
+    cv::setWindowProperty("IGV-Camera", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
+
 
 
 }
