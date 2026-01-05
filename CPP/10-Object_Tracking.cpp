@@ -119,8 +119,10 @@ int main()
 
     std::cout << " \n----- IGV::Camera Access Working -----" << std::endl;
 
-    std::cout << "----- Pipeline -----" << std::endl;
-    std::cout << "CSI Camera Sensor\n       |       \nnvarguscamerasrc\n       |       \nNVMM (GPU Memory)\n       |       \nnvvidconv (HW Accelearted)\n       |       \n      BGRx\n       |       \nvideoconvertor (CPU)\n       |       \n   appsink\n       |       \nOpenCV cv::Mat\n" << std::endl;
+    std::cout << "===================================================" << std::endl;
+    std::cout << "\n----- Pipeline -----" << std::endl;
+    std::cout << "CSI Camera Sensor\n       |       \nnvarguscamerasrc\n       |       \nNVMM (GPU Memory)\n       |       \nnvvidconv (HW Accelearted)\n       |       \n      BGRx\n       |       \nvideoconvertor (CPU)\n       |       \n    appsink\n       |       \nOpenCV cv::Mat\n" << std::endl;
+    std::cout << "===================================================" << std::endl;
 
 
     // =============== Pipeline Breakdown==================
