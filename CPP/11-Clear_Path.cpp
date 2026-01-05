@@ -77,7 +77,7 @@ int main()
     std::cout << "----- IGV::Window Created -----" << std::endl;
 
     // While Loop for Video Each Frame Scanning
-    std::cout << "----- Entering While Loop -----" << std::endl;
+    std::cout << "----- IGV::Entering While Loop -----" << std::endl;
     while(true)
     {
         // Take Single frame
@@ -86,8 +86,17 @@ int main()
         // Check if frame is empty
         if(frame.empty())
         {
-            
+            std::cerr << "IGV::ERROR::Empty Frame received!" << std::endl;
+            return(EXIT_FAILURE); 
         }
+
+        // If Frame recived move forward
+        // Convert color image (BGR Format) into a grayscale
+        cv::cvtColor(
+            frame, // Input: Original BGR image from camera
+            gray, // Output: Single-cahnnel (Grayscale image)
+            cv::COLOR_BGR2GRAY // Conversion type: BGR -> Grayscale
+        );
     }
 
 
