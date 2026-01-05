@@ -18,9 +18,6 @@
 #include <opencv2/opencv.hpp> // Realted to OpenCV 
 #include <iostream> // Standered I/O stream Library
 
-
-
-
 int main()
 {
     // Local Variable declaartions
@@ -34,6 +31,7 @@ int main()
     std::cout << "----- IGV::Pipeline Initialization Start -----" << std::endl;
     cv::VideoCapture cap(
         "nvarguscamerasrc !" // Direct interface to the navidia driver (Most setting Auto)
+        
         "video/x-raw(memory:NVMM)," // NVIDIA Multimedia memory | Critical for the High FPS/Low Latency/AI Interface Pipelines
         "width=1920, height=1080, frame=60/1 ! "
         "nvvidconv !" // Uses jetson hardware | Much faster than videconverter | Converter: memory layout/color formats/resolution
@@ -44,6 +42,8 @@ int main()
 
         // ====== BackEnd Selection ======
         cv::CAP_GSTREAMER // Force OpenCV to use the GStreamer backend | Mandatory when passing a GStreamer pipeline string  
+
+        
     );
 
     std::cout << "----- IGV::Camera Piepline Successfully intialized -----" << std::endl;
@@ -59,6 +59,9 @@ int main()
         return (EXIT_FAILURE); // Exit Program safely
     }
 
-    std::cout <<  "----- IGV::Camera Working -----"
+    std::cout <<  "----- IGV::Camera Working -----" << std::endl;
+
+    std::cout << "----- Pipeline -----" << std::endl;
+    std::cout << 
 
 }
