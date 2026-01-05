@@ -25,10 +25,13 @@ int main()
 {
     // Local Variable declaartions
 
+    // Code
+
     // ============ CSI Camera Pipeline ============
+
     // CSI Camera Pipeline Required for the jetson nano
     std::cout << std::endl;
-    std::cout << "----- Pipeline Initialize -----" << std::endl;
+    std::cout << "----- IGV::Pipeline Initialization Start -----" << std::endl;
     cv::VideoCapture cap(
         "nvarguscamerasrc !" // Direct interface to the navidia driver (Most setting Auto)
         "video/x-raw(memory:NVMM)," // NVIDIA Multimedia memory | Critical for the High FPS/Low Latency/AI Interface Pipelines
@@ -36,10 +39,13 @@ int main()
         "nvvidconv !" // Uses jetson hardware | Much faster than videconverter | Converter: memory layout/color formats/resolution
         "video/x-raw, format=BGRx !" // BGR + unused alpha channel required videoconverter works efficently with BGRx 
         " videoconvert !" // CPU-based color format converter | converts BGRx -> BGR | OpenCV expects BGR format
-        " video/x-raw, format=BGR !"
-        
-    )
+        " video/x-raw, format=BGR !" // Final format passed to the OpenCV | 3-Channel BGR image (CV_8UC3)
+        " appsink ", // Sink element that allows application (OpenCV) to read frames | Without appsink, OpenCV cannot access the video stream
 
-    // Code
+        // ====== BackEnd Selection ======
+        cv::CAP_GSTREAMER // Force OpenCV to use the GStreamer backend | Mandatory when passing a GStreamer pipeline string  
+    );
+
+    std::cout << "----- IGV::Camera Piepline "
 
 }
