@@ -18,7 +18,23 @@
 #include <opencv2/opencv.hpp> // Realted to OpenCV 
 #include <iostream> // Standered I/O stream Library
 
+
+
+
 int main()
 {
-    
+    // Local Variable declaartions
+
+    // ============ CSI Camera Pipeline ============
+    // CSI Camera Pipeline Required for the jetson nano
+    std::cout << std::endl;
+    std::cout << "----- Pipeline Initialize -----" << std::endl;
+    cv::VideoCapture cap(
+        "nvarguscamerasrc !" // Direct interface to the navidia driver (Most setting Auto)
+        "video/x-raw(memory:NVMM)," // NVIDIA 
+        
+    )
+
+    // Code
+
 }
