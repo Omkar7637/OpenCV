@@ -192,9 +192,32 @@ int main()
         if(centerCount >= leftCount && centerCount >= rightCount)
         {
             // Path is mostly in the center -> gp Straight
-            direction = "FORWARD"
+            direction = "FORWARD";
+        }
+        else if(leftCount > rightCount)
+        {
+            // Path is stronger on the left -> turn left
+            direction = "LEFT";
+        }
+        else
+        {
+            // Path is Stronger on the right -> turn right
+            direction = "RIGHT";
         }
 
+        // Step 8. Display the decision on the frame
+        cv::putText(
+            frame,                      // Image to draw text on
+            direction,                  // Text string 
+            cv::Point(50, 50),          // Text Position (x, y)
+            cv::FONT_HERSHEY_SIMPLEX,   // Font Type
+            1.0,                        // Font scale
+            cv::Scalar(0, 0, 255),      // Text Color (RED in BGR)
+            2                           // Thickness 
+        );
+
+        // Visulations Windows 
+        
         
     }
 
