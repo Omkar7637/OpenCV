@@ -54,6 +54,38 @@ int main()
     // - Successful negotioantion of caps (resolution, FPS, Format)
     if(!cap.isOpened()) // If any Element in the pipeline fails, this return false
     {
-        std::cout << "----- IGV::Camera Not Supported!! -----" << etd
+        std::cout << "----- IGV::Camera Not Supported!! -----" << std::endl;
+        return(EXIT_FAILURE); // Exit program safely
     }
+
+    std::cout << "----- IGV::Camera Working -----" << std::endl;
+
+    std::cout << "===================================================" << std::endl;
+    std::cout << "\n----- IGV::Pipeline -----" << std::endl;
+    std::cout << "CSI Camera Sensor\n       |       \nnvarguscamerasrc\n       |       \nNVMM (GPU Memory)\n       |       \nnvvidconv (HW Accelearted)\n       |       \n      BGRx\n       |       \nvideoconvertor (CPU)\n       |       \n    appsink\n       |       \nOpenCV cv::Mat\n" << std::endl;
+    std::cout << "===================================================" << std::endl;
+
+    // While Loop for video each frame scanning
+    std::cout << "----- IGV::Entering While Loop -----" << std::endl;
+    while(true)
+    {
+        // Take a single frame 
+        // Camera -> Frame 
+        cap >> frame; 
+
+        // Check if frame is empty
+        if(frame.empty())
+        {
+            std::cerr << "IGV::ERROR::EMPTY FRAME RECEVIED!" << std::endl;
+            return(EXIT_FAILURE);
+        }
+
+        // Step 1.Garyscale
+        // frame -> Grayscale
+        cv::cvtColor(
+            frame,          
+        )
+        
+    }
+
 }
