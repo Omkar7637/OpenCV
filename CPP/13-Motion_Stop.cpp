@@ -65,7 +65,27 @@ int main()
         return (EXIT_FAILURE); // Exit program safely
     }
 
-    std::cout << "Camera "
+    std::cout << "----- IGV::Camera Working -----" << std::endl;
+
+    // While Loop for video Each Frame Scanning
+    std::cout << "----- IGV::Entering while loop -----" << std::endl;
+
+    while(true)
+    {
+        // Take single frame | camera -> frame
+        cap >> frame;
+
+        // Check if the frame is empty
+        if(frame.empty())
+        {
+            std::cerr << "IGV::ERROR:Empty Frame received!" << std::endl;
+            return(EXIT_FAILURE);
+        }
+
+        /***************************************************************
+        *   
+        ***************************************************************/
+    }
 
 
 
