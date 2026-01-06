@@ -6,6 +6,9 @@
  *                      - Trigger EMERGENCY STOP if motion exceeds a thershold
  *                  Technique Used:
  *                      - Grayscale conversion
- *                      -     
+ *                      - Gaussion blur (noise reduction)    
+ *                      - Frame differencing
+ *                      - Binary thresholding   
+ *                      - Motion pixel counting
  * 
 **************************************************************************************/
