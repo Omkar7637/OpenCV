@@ -165,12 +165,32 @@ int main()
         ***************************************************************/
 
         cv::threshold(
-            diff,               // Input Grayscale image stored in diff
-            binary,             // Output Binary Image
-            25,                 // Ther
-            255, 
-            cv::THRESH_BINARY
-        )
+            diff,               // Input: Absolute differnence image
+            binary,             // Output: Binary motion mask 
+            25,                 // Threshold value (Motion sensitivity)
+            255,                // Value for detected motion pixels
+            cv::THRESH_BINARY   // Binary thresholding
+        );
+
+        /***************************************************************
+        *   STEP 5: Count motion pixels
+        * 
+        * countNonZero():
+        *   - Count pixels with value != 0
+        *   - In binary image, this equals number of motion pixels 
+        ***************************************************************/
+
+        int motionPixels = cv::countNonZero(binary);
+
+        /***************************************************************
+        * STEP 6: Decide safety status
+        * 
+        * motionPixels > 5000 means:
+        *   - Large area changed suddenly
+        *   - 
+        ***************************************************************/
+
+        
 
 
     
