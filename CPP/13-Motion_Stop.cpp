@@ -36,7 +36,16 @@ int main()
     // ========== CSI CAMERA PIPELINE ==========
     // CSI camera pipeline required for the jetson nano
     std::cout << std::endl;
-    std::cout << "----- IGV::Pipline " 
+    std::cout << "----- IGV::Pipline intialization Start -----" << std::endl;
+    
+    // Video Capture class
+    cv::VideoCapture cap(
+        "nvarguscamerasrc !" // Direct interface to the nvidia hardware (mostly auto setting)
+        "video/x-raw(memory:NVMM), " // NVIDIA multimedia memory
+        "width=1920, height=1080, frame=60/1 !"
+        "nvvidconv !" // Uses jetson hardware | much faster for the video converter 
+        ""
+    )
 
     return (EXIT_SUCCESS);
 }
