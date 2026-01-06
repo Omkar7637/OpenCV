@@ -32,5 +32,11 @@ int main()
     // CSI Camera pipeline required for jetson nano
     std::cout << std::endl;
     std::cout << "----- IGV::Pipeline Intialization Start -----" << std::endl;
-    cv::Video
+    cv::VideoCapture cap(
+        "nvarguscamerasrc !" // Direct interface to nividia driver (Auto setting)
+        "video/x-raw(memory:NVMM)," // Nvidia multimedia memory
+        "width=1920, height=1080, frame=60/1 !"
+        "nvvidconv !" // use jetson hardware | Converter: Memory Layout, color formats, resolutions
+        "videoconvert"
+    )
 }
