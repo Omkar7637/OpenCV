@@ -83,7 +83,25 @@ int main()
         // Step 1.Garyscale
         // frame -> Grayscale
         cv::cvtColor(
-            frame,          
+            frame,              // Input: Original BGR image from camera
+            gray,               // Output: Signal-cahnnel (Grayscale image)
+            cv::COLOR_BGR2GRAY  // Convertion type: BGR -> Grayscale
+        );
+
+        // Step 2.Blur
+        // Grayscale -> blur
+        cv::GaussianBlur(
+            gray,               // Input: grascale image 
+            gray,               // Output: Same image overwritten (in-place)
+            cv::Size(5, 5),     // 5x5 Gaussion kernal
+            0                   // Auto calculate Sigma
+        );
+
+        // Step 3.Thershold
+        // Gaussian blur -> Thersholding
+        cv::threshold(
+            gray,               // Input Grayscale Image (Blur)
+            binary, 
         )
         
     }
