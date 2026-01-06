@@ -126,7 +126,32 @@ int main()
         // Width of each Zone (ROI is divide into 3 equal parts)
         int zoneWidth = w / 3;
 
-        
+        /*
+        *   Create sub-ROIs (zones) from the main ROI
+        *   Note:   
+        *       - These are NOT copies
+        *       - They are views into the original ROI memory
+        *       - Extermely fast and memory-effiecent
+        * 
+        *   cv::Rect(x, y, width, height)
+        */
+
+        // Left Zone: from x = 0 to x = zoneWidth
+        cv::Mat leftzone = roi(
+            cv::Rect(
+                0,              // x Start
+                0,              // y start
+                zoneWidth,      // width
+                roi.rows        // Full height of ROI
+            )
+        );
+
+        // Center zone: from x = zoneWidth to x = 2 * zoneWidth
+        cv::Mat centerZone = roi(
+            cv::Rect(
+                xoneWidth,      // x
+            )
+        )
         
     }
 
