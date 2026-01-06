@@ -143,10 +143,13 @@ int main()
         *   OutputArray dst  -> output diffenerence image
         * )
         ***************************************************************/
-
+       
         cv::absdiff(
-            gray
-        )
+            gray,           // Current grayscale frame
+            prevGray,       // Pervious garyscale frame
+            diff           // Output image showing motion areas
+        );
+
 
     
     
