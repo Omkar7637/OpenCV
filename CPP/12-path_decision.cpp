@@ -101,8 +101,23 @@ int main()
         // Gaussian blur -> Thersholding
         cv::threshold(
             gray,               // Input Grayscale Image (Blur)
-            binary, 
-        )
+            binary,             // Output Binary Image
+            0,                  // Thershold value (not used by OTSU)
+            255,                // Maximum Value for THRESH_BINARY
+            cv::THRESH_BINARY | // Binary therhsolding
+            cv::THRESH_OTSU     // Automatically calculates best thershold
+        );
+
+        // Step 4.ROI (Botton Half)
+        int h = binary.rows;    // Total Height of the binary image (In Pixels)
+        int w = binary.cols;    // Total Width of the binayr image (In Pixels)
+
+        // Create a ROI Using cv::Rect()
+        roi = binary(cv::rect(
+            0,                  // Start from left edge
+            h/2,                // Start from middle vertically
+            w,                  
+        ))
         
     }
 
