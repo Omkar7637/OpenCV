@@ -90,6 +90,7 @@ int main()
         *       - Faster and more stable
         *   frame -> grayscale
         ***************************************************************/
+
        cv::cvtColor(
         frame,              // Input: Origianl BGR image from camera
         gray,               // Output: Single-cahnnel (Grayscale image)
@@ -104,6 +105,7 @@ int main()
         *       - Faster and more stable
         *   Grayscale -> Guassian Blur
         ***************************************************************/
+
        cv::GaussianBlur(
         gray,               // Input: grayscale image
         gray,               // Output: Same image overwritten (in-place)
@@ -143,12 +145,32 @@ int main()
         *   OutputArray dst  -> output diffenerence image
         * )
         ***************************************************************/
-       
+
         cv::absdiff(
             gray,           // Current grayscale frame
             prevGray,       // Pervious garyscale frame
-            diff           // Output image showing motion areas
+            diff            // Output image showing motion areas
         );
+
+        /***************************************************************
+        * STEP 4: Thershold the difference image
+        * Threshold value: 25
+        * 
+        * Meaning:
+        *   - Pixel difference > 25 -> Motion
+        *   - Pixel difference <= 25 -> Noise
+        * 
+        * Output:
+        *   - binary image (0 or 255)
+        ***************************************************************/
+
+        cv::threshold(
+            diff,               // Input Grayscale image stored in diff
+            binary,             // Output Binary Image
+            25,                 // Ther
+            255, 
+            cv::THRESH_BINARY
+        )
 
 
     
