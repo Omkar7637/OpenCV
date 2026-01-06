@@ -113,11 +113,20 @@ int main()
         int w = binary.cols;    // Total Width of the binayr image (In Pixels)
 
         // Create a ROI Using cv::Rect()
-        roi = binary(cv::rect(
+        roi = binary(cv::Rect(
             0,                  // Start from left edge
             h/2,                // Start from middle vertically
-            w,                  
-        ))
+            w,                  // Fill width
+            h/2                 // Bottom half of the image  
+        ));
+
+        // Step 5. Divide ROI into 3 Zones
+        // LEFT | CENTER | RIGHT
+
+        // Width of each Zone (ROI is divide into 3 equal parts)
+        int zoneWidth = w / 3;
+
+        
         
     }
 
