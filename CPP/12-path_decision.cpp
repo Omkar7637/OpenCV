@@ -171,8 +171,30 @@ int main()
         *   coutNonZero():
         *       - Counts pixel with value != 0
         *       - In binary image:
-        *           0
+        *           0   -> Background
+        *           255 -> path / line / object 
         */
+
+        int leftCount = cv::countNonZero(leftzone);
+        int centerCount = cv::countNonZero(centerZone);
+        int rightCount = cv::countNonZero(rightZone);
+
+        // Step 7. Decide movement direction
+        /*
+        *   Logic: 
+        *       - If center has most white pixel -> FORWORD
+        *       - Else if left has more than right -> LEFT
+        *       - Else -> Right
+        */
+
+        std::string direction;
+
+        if(centerCount >= leftCount && centerCount >= rightCount)
+        {
+            // Path is mostly in the center -> gp Straight
+            direction = "FORWARD"
+        }
+
         
     }
 
