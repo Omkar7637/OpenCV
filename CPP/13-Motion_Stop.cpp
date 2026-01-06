@@ -216,8 +216,30 @@ int main()
         );
 
         /***************************************************************
-        * DISPLAY WIN
+        * DISPLAY WINDOWS
         ***************************************************************/
+
+        cv::imshow("Camera", frame);    // Original view with status
+        cv::imshow("Motion Mask", binary);  // White = motion
+
+        
+        /***************************************************************
+        * UPDATE PREVIOUS FRAME
+        * Must clone:
+        *   - because gray will be overwritten in next loop
+        ***************************************************************/
+
+        prevGray = gray.clone();
+
+        /***************************************************************
+        * EXIT CONDITION
+        ***************************************************************/
+
+        if(cv::waitKey(1) == 27)
+        {
+            break; // ESC KEY
+        }
+
 
 
 
