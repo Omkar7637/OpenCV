@@ -83,7 +83,7 @@ int main()
         }
 
         /***************************************************************
-        *   Step 1: Convert color image to grayscale
+        *   STEP 1: Convert color image to grayscale
         *   Why: 
         *       - Motion detction depends on intensity change
         *       - Color information is unnecessary
@@ -97,7 +97,7 @@ int main()
        );
 
         /***************************************************************
-        *   step 2: Gaussian blur (VERY IMPROTANT)   
+        *   STEP 2: Gaussian blur (VERY IMPROTANT)   
         *   Why:
         *       - Removes sensor noise
         *       - Prevents false motion detection
@@ -123,8 +123,32 @@ int main()
         {
             prevGray = gray.clone(); // Deep copy 
             firstFrame = false;
-            continue; // 
+            continue; // go to next frame
         }
+
+        /***************************************************************
+        * STEP 3: Absolute Difference (Frame Differenceing)    
+        * absdiff():
+        *   - Computes | Current - previous |
+        *   - Highlights regions where motion occurred
+        * 
+        * Result:
+        *   - Black pixels -> No motion
+        *   - Bright Pixels -> Motion
+        * 
+        * Compute absolute differnce between teo images
+        * cv::absdiff(
+        *   InputArray src1, -> first image
+        *   InputArray src2, -> second image
+        *   OutputArray dst  -> output diffenerence image
+        * )
+        ***************************************************************/
+
+        cv::absdiff(
+            gray
+        )
+
+    
     
     
     }
