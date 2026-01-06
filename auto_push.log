@@ -20888,3 +20888,13 @@ To github.com:Omkar7637/OpenCV.git
  delete mode 100755 CPP/12-path_decision
 To github.com:Omkar7637/OpenCV.git
    23b7f89..c39763a  main -> main
+[main b994596] Auto update: 2026-01-06 11:40:01
+ 7 files changed, 5 insertions(+)
+ rename CPP/{01-lesson1.cpp => 01-Lesson1.cpp} (100%)
+ rename CPP/{02-grayscale.cpp => 02-Grayscale.cpp} (100%)
+ rename CPP/{03-camera.cpp => 03-Camera.cpp} (100%)
+ rename CPP/{05-edge_pipeline.cpp => 05-Edge_pipeline.cpp} (100%)
+ rename CPP/{12-path_decision.cpp => 12-Path_decision.cpp} (100%)
+ create mode 100644 CPP/13-Motion_Stop.cpp
+To github.com:Omkar7637/OpenCV.git
+   c39763a..b994596  main -> main
