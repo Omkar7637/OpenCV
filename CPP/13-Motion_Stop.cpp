@@ -83,8 +83,28 @@ int main()
         }
 
         /***************************************************************
-        *   
+        *   Step 1: Convert color image to grayscale
+        *   Why: 
+        *       - Motion detction depends on intensity change
+        *       - Color information is unnecessary
+        *       - Faster and more stable
+        *   frame -> grayscale
         ***************************************************************/
+       cv::cvtColor(
+        frame,              // Input: Origianl BGR image from camera
+        gray,               // Output: Single-cahnnel (Grayscale image)
+        cv::COLOR_BGR2GRAY  // Conversion type: BGR -> Grayscale
+       );
+
+        /***************************************************************
+        *   step 2: Gaussian blur (VERY IMPROTANT)   
+        *   Why:
+        *       - Removes sensor noise
+        *       - Prevents false motion detection
+        *       - Faster and more stable
+        *   Grayscale -> Guassian Blur
+        ***************************************************************/
+    
     }
 
 
