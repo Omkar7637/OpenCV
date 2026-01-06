@@ -42,7 +42,8 @@ int main()
     cv::VideoCapture cap(
         "nvarguscamerasrc !" // Direct interface to the nvidia hardware (mostly auto setting)
         "video/x-raw(memory:NVMM), " // NVIDIA multimedia memory
-        "width=1920, height=1080, frame=60/1 !"
+        // "width=1920, height=1080, frame=60/1 !"
+        "width=1280, height=720, frame=60/1 !"
         "nvvidconv !" // Uses jetson hardware | much faster for the video converter 
         "video/x-raw, format=BGRx !" // BGR + unused alpha channel required videoconverter work effiecntly with BGRx
         "videoconvert !" // CPU-based color fomat converter | Convert BGRx -> BGR | OpenCV expect BGR format
@@ -192,7 +193,7 @@ int main()
 
         std::string status;
 
-        if(motionPixels > 5000)
+        if(motionPixels > 10000)
         {
             status = "EMERGENCY STOP";
         }
