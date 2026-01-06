@@ -17,3 +17,20 @@
 *   OS          : C++   
 
 ************************************************************************************************************/
+
+// ==================== HEADER FILES ====================
+#include <opencv2/opencv.hpp> 
+#include <iostream>
+
+int main()
+{
+    // Local Variable decalarations
+    // OpenCV Related variable 
+    cv::Mat frame, gray, binary, roi;
+
+    // ========== CSI Camera Pipeline ==========
+    // CSI Camera pipeline required for jetson nano
+    std::cout << std::endl;
+    std::cout << "----- IGV::Pipeline Intialization Start -----" << std::endl;
+    cv::Video
+}
