@@ -44,7 +44,13 @@ int main()
         "video/x-raw(memory:NVMM), " // NVIDIA multimedia memory
         "width=1920, height=1080, frame=60/1 !"
         "nvvidconv !" // Uses jetson hardware | much faster for the video converter 
-        ""
+        "video/x-raw, format=BGRx !" // BGR + unused alpha channel required videoconverter work effiecntly with BGRx
+        "videoconvert !" // CPU-based color fomat converter | Convert BGRx -> BGR | OpenCV expect BGR format
+        "video/x-raw, format=BGR !" // Final format passed to the OpenCV | 3-channel BGR image (CV_8UC3)
+        "appsink ", // Sink element that allows application (OpenCV) to read frames | without appsink, OpenCV cannot access the video stream
+
+        // BACKEND SELECTION
+        cv::CAP_GSTREAMER // Force OpenCV to use the GSTREAMER backend | Mandatory When
     )
 
     return (EXIT_SUCCESS);
