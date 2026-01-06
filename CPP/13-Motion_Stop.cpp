@@ -168,7 +168,7 @@ int main()
         cv::threshold(
             diff,               // Input: Absolute differnence image
             binary,             // Output: Binary motion mask 
-            25,                 // Threshold value (Motion sensitivity)
+            30,                 // Threshold value (Motion sensitivity)
             255,                // Value for detected motion pixels
             cv::THRESH_BINARY   // Binary thresholding
         );
