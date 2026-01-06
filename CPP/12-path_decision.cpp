@@ -149,9 +149,30 @@ int main()
         // Center zone: from x = zoneWidth to x = 2 * zoneWidth
         cv::Mat centerZone = roi(
             cv::Rect(
-                xoneWidth,      // x
+                zoneWidth,      // x Start
+                0,              // y Start
+                zoneWidth,      // Width
+                roi.rows        // Full height of ROI
             )
-        )
+        );
+
+        // Right Zone: from x = 2 * zoneWidth to x = 3 * zoneWitdh
+        cv::Mat rightZone = roi(
+            cv::Rect(
+                2 * zoneWidth,  // x Start
+                0,              // y Start
+                zoneWidth,      // Width
+                roi.rows        // Full height of ROI
+            )
+        );
+
+        // Step 6. Count White Pixel in each zone
+        /*
+        *   coutNonZero():
+        *       - Counts pixel with value != 0
+        *       - In binary image:
+        *           0
+        */
         
     }
 
