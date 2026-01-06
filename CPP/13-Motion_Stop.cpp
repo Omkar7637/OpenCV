@@ -30,7 +30,7 @@ int main()
     // firstFrame = true means:
     //      - No prevoius frame exists yet
     //      - Motion detection cannot be done
-    bool firstFame = true;
+    bool firstFrame = true;
 
     // ==================== CODE ====================
     // ========== CSI CAMERA PIPELINE ==========
@@ -104,6 +104,28 @@ int main()
         *       - Faster and more stable
         *   Grayscale -> Guassian Blur
         ***************************************************************/
+       cv::GaussianBlur(
+        gray,               // Input: grayscale image
+        gray,               // Output: Same image overwritten (in-place)
+        cv::Size(5, 5),     // 5x5 Guassian kernal
+        0                   // Auto Calulate Sigma
+       );
+
+        /***************************************************************
+        *   HANDLE FISRT FRAME 
+        *   We need two frames to detect motion.
+        *   For the first frame:
+        *       - Store it as prevGray
+        *       - Skip motion detction   
+        ***************************************************************/
+
+        if(firstFrame)
+        {
+            prevGray = gray.clone(); // Deep copy 
+            firstFrame = false;
+            continue; // 
+        }
+    
     
     }
 
