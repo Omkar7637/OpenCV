@@ -21,6 +21,7 @@
 // ==================== HEADER FILES ====================
 #include <opencv2/opencv.hpp> 
 #include <iostream>
+#include <cstdlib> // For EXIT_SUCCESS, EXIT_FAILURE
 
 int main()
 {
@@ -217,7 +218,17 @@ int main()
         );
 
         // Visulations Windows 
-        
+        cv::imshow("Camera", frame);    // Full annotated frame
+        cv::imshow("ROI", roi);         // Region used for decision
+
+        // Exit Condition
+        //  - WaitKey(1): allows GUI refresh
+        //  - 27 = ESC Key
+
+        if(cv::waitKey(1) == 27)
+        {
+            break; // Exit mainprocessing loop
+        }
         
     }
 
