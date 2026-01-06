@@ -187,8 +187,39 @@ int main()
         * 
         * motionPixels > 5000 means:
         *   - Large area changed suddenly
-        *   - 
+        *   - Possible obstacle / human / collision risk
         ***************************************************************/
+
+        std::string status;
+
+        if(motionPixels > 5000)
+        {
+            status = "EMERGENCY STOP";
+        }
+        else
+        {
+            status = "SAFE";
+        }
+
+        /***************************************************************
+        * STEP 7: Display status on video frame
+        ***************************************************************/
+
+        cv::putText(
+            frame,                      // Image to draw on
+            status,                     // Text
+            cv::Point(50, 50),          // Position
+            cv::FONT_HERSHEY_SIMPLEX,   // Font
+            1.0,                        // Font Size
+            cv::Scalar(0, 0, 255),      // Red Color (BGR)
+            2                           // Thickness
+        );
+
+        /***************************************************************
+        * DISPLAY WIN
+        ***************************************************************/
+
+
 
         
 
