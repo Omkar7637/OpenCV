@@ -50,8 +50,24 @@ int main()
         "appsink ", // Sink element that allows application (OpenCV) to read frames | without appsink, OpenCV cannot access the video stream
 
         // BACKEND SELECTION
-        cv::CAP_GSTREAMER // Force OpenCV to use the GSTREAMER backend | Mandatory When
-    )
+        cv::CAP_GSTREAMER // Force OpenCV to use the GSTREAMER backend | Mandatory When passing a GSTREAMER pipeline string
+    );
+
+    std::cout << "----- IGV::Camera piline intialize succefully -----" << std::endl;
+
+    // ========== Camera Access ==========
+    // - GStreamer pipline creation | camera avilability
+    // - succefull negotitation of caps (resolution, FPS, Format)
+
+    if(!cap.isOpened()) // If any element in the pipeline fails, this return false 
+    {
+        std::cout << "----- IGV::Camera Not Support -----" << std::endl;
+        return (EXIT_FAILURE); // Exit program safely
+    }
+
+    std::cout << "Camera "
+
+
 
     return (EXIT_SUCCESS);
 }
