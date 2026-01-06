@@ -20,10 +20,23 @@
 int main()
 {
     // ==================== IMAGE CONTAINERS ====================
-    cv::Mat frame; // Orignal color image from camera (BGR)
-    cv::Mat gray;  // current grayscale frame
-    cv::Mat prevGray // previous grayscale frame (used for comparision)
-    // 
+    cv::Mat frame;      // Orignal color image from camera (BGR)
+    cv::Mat gray;       // current grayscale frame
+    cv::Mat prevGray;   // previous grayscale frame (used for comparision)
+    cv::Mat diff;       // absolute difference between current and prevoiuos frames
+    cv::Mat binary;     // thersholded motion mask (white = motion)
+    
+    // Flag to handle the very first frame
+    // firstFrame = true means:
+    //      - No prevoius frame exists yet
+    //      - Motion detection cannot be done
+    bool firstFame = true;
+
+    // ==================== CODE ====================
+    // ========== CSI CAMERA PIPELINE ==========
+    // CSI camera pipeline required for the jetson nano
+    std::cout << std::endl;
+    std::cout << "----- IGV::Pipline " 
 
     return (EXIT_SUCCESS);
 }
