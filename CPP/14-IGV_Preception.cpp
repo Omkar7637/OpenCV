@@ -23,7 +23,7 @@
  *  Framework   : OpenCV 4.x, GStreamer
  *  Version     : 1.0.14
  *  Notes       : 
- *      - Uses nearguscamerasrc for CSI
+ *      - Uses nvarguscamerasrc for CSI
  *      - Requires OpenCV built with GStreamer support.
  *      - Designed for embedded vision applications.
 *****************************************************************************************/
