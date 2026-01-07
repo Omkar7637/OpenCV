@@ -80,7 +80,7 @@ int main()
         if(!cap.read(frame) || frame.empty())
         {
             std::cerr << "ERROR:Empty Frame recived!" << std::endl;
-            return(EXIT_FAILURE); 
+            continue;
         }
 
         /******************************************************
@@ -108,6 +108,13 @@ int main()
             0                   // Auto calculate sigma
         );
 
+        if (firstFrame)
+        {
+            prevGray = gray.clone();
+            firstFrame = false;
+            continue;
+        }
+
         /******************************************************
          * STEP 2. EMERGENCY STOP (MOTION DETECTION)
          *      - Detect sudden scene changes
@@ -130,7 +137,7 @@ int main()
             // diff > 25 -> motion pixel (255)
             cv::threshold(
                 diff,           // Input: Absolute differnence image
-                binary,         // Output: Binary motion mask
+                motionMask,         // Output: motion mask
                 25,             // Threshold value (motion sesitivity)
                 255,            // Value for detected motion pixels
                 cv::THRESH_BINARY // Binary thresholding
@@ -144,11 +151,6 @@ int main()
             {
                 emergencyStop = true;
             }
-        }
-        else
-        {
-            // First frmae cannot be used for motion detection 
-            firstFrame = false;
         }
 
         // Store current frame as previous for next iteration
@@ -181,6 +183,8 @@ int main()
             int h = binary.rows;
             int w = binary.cols;
 
+            if (binary.empty()) continue;
+
             // Define ROI as botton half of the image
             // Reason:
             //      - Path exists near robot, not in sky/background
@@ -193,6 +197,8 @@ int main()
                 )
             );
 
+            if (roi.empty()) continue;
+            
             // Divide ROI into three equal vertical zones
             int zoneWidth = w / 3;
 
