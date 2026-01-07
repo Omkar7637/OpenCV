@@ -22302,3 +22302,49 @@ To github.com:Omkar7637/OpenCV.git
  1 file changed, 4 insertions(+)
 To github.com:Omkar7637/OpenCV.git
    64e7750..08f6c62  main -> main
+[main 502e81f] Auto update: 2026-01-07 16:25:01
+ 43 files changed, 4683 insertions(+)
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/README.md
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/README.md
+ create mode 100755 Arducam-Pivariety-V4L2-Driver-master/Release/arducam_camera_selector.sh
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.17+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.17+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.17-v7+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.17-v7+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.17-v7l+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.17-v7l+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.52+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.52+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.52-v7+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.52-v7+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.52-v7l+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.52-v7l+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.60+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.60+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.60-v7+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.60-v7+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.60-v7l+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.60-v7l+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63-v7+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63-v7+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63-v7l+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63-v7l+/arducam.ko
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63-v8+/arducam.dtbo
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/Release/bin/5.10.63-v8+/arducam.ko
+ create mode 100755 Arducam-Pivariety-V4L2-Driver-master/Release/install_driver.sh
+ create mode 100755 Arducam-Pivariety-V4L2-Driver-master/Release/uninstall_driver.sh
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/focus/Focuser.py
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/focus/FocuserExample.py
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/focus/v4l2_utils.py
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/patchs/arducam_device_5.10.92.patch
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/patchs/arducam_device_tree.patch
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/patchs/arducam_driver.patch
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/src/arducam.c
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/src/arducam.h
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/tools/README.md
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/tools/keyboard_ctrl_tools.py
+ create mode 100644 Arducam-Pivariety-V4L2-Driver-master/tools/screenshot.png
+To github.com:Omkar7637/OpenCV.git
+   08f6c62..502e81f  main -> main
