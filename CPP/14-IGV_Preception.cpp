@@ -188,12 +188,16 @@ int main()
             // Define ROI as botton half of the image
             // Reason:
             //      - Path exists near robot, not in sky/background
+            // Take bottom 70% of the frame as ROI
+            int roiStartY = h * 0.3;      // Start at 30% height
+            int roiHeight = h * 0.7;      // Cover 70% of image
+
             roi = binary(
                 cv::Rect(
                     0,          // Start from left edge
-                    h/2,        // Start from middle of the image vertically
+                    roiStartY,  // Start from middle of the image vertically
                     w,          // Use full image width
-                    h/2         // Bottom half of the image
+                    roiHeight   // Bottom half of the image
                 )
             );
 
