@@ -192,7 +192,32 @@ int main()
             }
         }
 
-        // ========== 
+        // ========== OCCUPANCY MAP VISUALIZATION ==========
+        // Create visualization image
+        // Each grid cell is drawn as a 30x30 square
+        cv::Mat mapVis(MAP_ROWS * 30, MAP_COLS * 30, CV_8UC3);
+
+        for(int r = 0; r < MAP_ROWS; r++)
+        {
+            for(int c = 0; c < MAP_COLS; c++)
+            {
+                cv::Scalar color;
+
+                // Assign color based on occupancy state
+                if(occupancyMap[r][c] == 0)
+                {
+                    color = cv::Scalar(128, 128, 128); // unkonn (gray)
+                }
+                else if(occupancyMap[r][c] == 1)
+                {
+                    color = cv::Scalar(255, 255, 255); // Free (White)
+                }
+                else
+                {
+                    color = cv::Scalar(0, 0, 0); // obstacle (black)
+                }
+            }
+        }
 
 
         //// END OF WHILE LOOP ////
