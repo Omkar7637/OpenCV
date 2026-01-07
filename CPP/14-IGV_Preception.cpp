@@ -85,13 +85,28 @@ int main()
             return(EXIT_FAILURE); 
         }
 
-        // STEP 1. PREPROCESSING
-        //      - Convert to grayscale
-        //      - Apply Gaussian blur to reduce noise
+        /******************************************************
+        * STEP 1. PREPROCESSING
+        *     - Convert to grayscale
+        *      - Apply Gaussian blur to reduce noise
+        *******************************************************/
 
         // Convert BGR image to single-channel grayscale
         cv::cvtColor(
-            frame,          // Input
+            frame,              // Input: Original BGR image from camera
+            gray,               // Output: Single-channel (Grayscale image)
+            cv::COLOR_BGR2GRAY  // Conversion type: BGR -> Grayscale
+        );
+
+        // Apply Guassian Blur (5x5 kernal)
+        // Purpose: 
+        //      - Reduce camera noise
+        //      - Improve threshold stability
+        //      - Prevent flase motion dection
+        cv::GaussianBlur(
+            gray,               // Input: grayscale image
+            gray,               // Output: Same image overwritten (in-place)
+            cv::Size(5, 5),     // 5x5 Guassian kernal
         )
     }
 
