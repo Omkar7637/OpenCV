@@ -265,7 +265,7 @@ int main()
             cv::putText(
                 frame,                      // Image to draw on
                 "EMERGENCY STOP",           // Text
-                cv::Point(50, 50),          // Positions
+                cv::Point(50, 100),          // Positions
                 cv::FONT_HERSHEY_SIMPLEX,   // Font
                 3,                          // Font Size
                 cv::Scalar(0, 0, 255),      // RED Color (BGR)
@@ -278,7 +278,7 @@ int main()
             cv::putText(
                 frame,                      // Image to draw on
                 direction,                  // Text
-                cv::Point(50, 50),          // Position
+                cv::Point(50, 100),          // Position
                 cv::FONT_HERSHEY_SIMPLEX,   // FONT
                 3,                          // Font Size
                 cv::Scalar(0, 255, 0),      // Green Color
