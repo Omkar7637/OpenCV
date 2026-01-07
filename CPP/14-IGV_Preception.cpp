@@ -227,10 +227,34 @@ int main()
                     zoneWidth,  // Zone Width
                     roi.rows    // full ROI height
                 )
-            )
+            );
 
+            // Count path pixels in each zones
+            int leftCount = cv::countNonZero(left);
+            int centerCount = cv::countNonZero(center);
+            int rightCount = cv::countNonZero(right);
+
+            // Direction decision logic
+            // Priority given to forward movement for stability
+            if(centerCount >= leftCount && centerCount >= rightCount)
+            {
+                direction = "FORWORD";
+            }
+            else if(leftCount > rightCount)
+            {
+                direction = "LEFT";
+            }
+            else
+            {
+                direction = "RIGHT";
+            }
 
         }
+
+        /******************************************************
+         * STEP 4. DISPLAY & VISUALIZATION
+        ******************************************************/
+        
 
 
     }
