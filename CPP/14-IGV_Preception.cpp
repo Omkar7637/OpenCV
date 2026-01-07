@@ -202,7 +202,32 @@ int main()
             // [ LEFT ZONE ] [ CENTER ZONE ] [ RIGHT ZONE ]
             // The Robot decides direction based on where the path
             // (White pixels) is strongest.
-            
+            cv::Mat left = roi(
+                cv::Rect(
+                    0,          // x start
+                    0,          // y start
+                    zoneWidth,  // Zone width
+                    roi.rows    // fill ROI height
+                )
+            );
+
+            cv::Mat center = roi(
+                cv::Rect(
+                    zoneWidth,  // x start
+                    0,          // y start
+                    zoneWidth,  // Zone Width
+                    roi.rows    // full ROI height
+                )
+            );
+
+            cv::Mat right = roi(
+                cv::Rect(
+                    2 * zoneWidth, // x start
+                    0,          // y start
+                    zoneWidth,  // Zone Width
+                    roi.rows    // full ROI height
+                )
+            )
 
 
         }
