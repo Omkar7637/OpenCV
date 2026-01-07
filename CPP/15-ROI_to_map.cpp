@@ -49,5 +49,26 @@ int occupancyMap[MAP_ROWS][MAP_COLS] = {0};
 int main()
 {
     // ==================== CAMERA INTIALIZATION ====================
-    std::cout << std::endl << "========== CAMERA INTIALIZATIONS ==========" 
+    std::cout << std::endl << "========== CAMERA INTIALIZATIONS ==========" << std::endl;
+    
+    cv::VideoCapture cap(
+        "nvarguscamerasrc !"
+        "video/x-raw(memory:NVMM), "
+        "width=1280, height=720, frame=60/1 !"
+        "nvvidconv !"
+        "video/x-raw, format=BGRx !"
+        "videoconvert !"
+        "video/x-raw, format=BGR !"
+        "appsink",
+        cv::CAP_GSTREAMER
+    );
+
+    if(!cap.isOpened())
+    {
+        std::cout << "========== CAMERA NOT SUPPORTED ==========" << std::endl;
+        return(EXIT_FAILURE);
+    }
+
+    // ==================== IMAGE MATRICES (PROCESSING STAGES) ====================
+    cv::Mat frame; // Origianl
 } 
