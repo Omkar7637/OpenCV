@@ -172,8 +172,21 @@ int main()
             // Apply OTSU thresholding for automatic segmentation
             cv::threshold(
                 gray,           // Input: Grayscale Image
-                binary,         // 
-            )
+                binary,         // Output: binary image (0 to 255)
+                0,              // Dummy thershold (OTSU calculates it)
+                255,            // Foregriund pixel value (white)
+                cv::THRESH_BINARY | // Binary therhsolding
+                cv::THRESH_OTSU // Automatic threshold selection
+            );
+
+            // IMAGE DIMENTIONS
+            int h = binary.rows;
+            int w = binary.cols;
+
+            // Define ROI as botton half of the image
+            // Reason:
+            //      - Path exists near robot, not in sky/background
+            
         }
 
 
