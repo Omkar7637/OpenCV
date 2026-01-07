@@ -254,6 +254,28 @@ int main()
         /******************************************************
          * STEP 4. DISPLAY & VISUALIZATION
         ******************************************************/
+
+        if(emergencyStop)
+        {
+            // Display emergency warning in RED
+            cv::putText(
+                frame,                      // Image to draw on
+                "EMERGENCY STOP",           // Text
+                cv::Point(50, 50),          // Positions
+                cv::FONT_HERSHEY_SIMPLEX,   // Font
+                1,                          // Font Size
+                cv::Scalar(0, 0, 255),      // RED Color (BGR)
+                2                           // Thickness
+            );
+        }
+        else
+        {
+            // Dispay navigation decision in GREEN
+            cv::putText(
+                frame,                      // Image to draw on
+                
+            )
+        }
         
 
 
