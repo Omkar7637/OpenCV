@@ -59,7 +59,7 @@ int main()
         return(EXIT_FAILURE); // Exit program safely
     }
 
-    // ========== 
+    // ========== IMAGE MATRICES (PIPLINE STAGES) ========== 
     
 
 
