@@ -216,10 +216,28 @@ int main()
                 {
                     color = cv::Scalar(0, 0, 0); // obstacle (black)
                 }
+
+                // Draw filled rectangle for each grid cell
+                cv::rectangle(
+                    mapVis, 
+                    cv::Rect(c * 30, r * 30, 30, 30), 
+                    color, 
+                    cv::FILLED
+                );
             }
         }
 
+        // ========== DISPLAY OUTPUTS ==========
+        cv::imshow("camera", frame);    // Origianl camera feed
+        cv::imshow("ROI", roi);         // Bottom-half region
+        cv::imshow("occupancy Map", mapVis); // Grid-based map
 
+        // ========== EXIT CONDITION ==========
+        if(cv::waitKey(1) == 27) // ESC Key
+        {
+            break;
+        }
         //// END OF WHILE LOOP ////
     }
+    return(EXIT_SUCCESS);
 } 
