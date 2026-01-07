@@ -41,7 +41,12 @@ int main()
     std::cout << std::endl << "========== Camera Intitializations ==========" << std::endl;
     cv::VideoCapture cap(
         "nvarguscamerasrc !" // Direct interface to nividia hardware (Mostly auto setting)
-        "video/x-raw(memory:NVMM)"
+        "video/x-raw(memory:NVMM), " // NVIDIA Multimedia memory
+        "width=1280, height=720, frame=60/1 !"
+        "nvvidcon !" // Uses Jetson hardware | Much faster for video converter
+        "video/x-raw, format=BGRx !" //  BGR + usused alpha channel required | Video Converter work efficently with BGRx
+        "videoconvert !" // CPU-Based color format converter | Convert BGRx -> BGR | OpenCV expects BGR format
+        "video/x-raw"
     )
 
 
