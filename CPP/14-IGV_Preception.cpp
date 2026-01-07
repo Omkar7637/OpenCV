@@ -130,7 +130,26 @@ int main()
 
             // Threshold differnce image to create motion mask
             // diff > 25 -> motion pixel (255)
-            cv::
+            cv::threshold(
+                diff,           // Input: Absolute differnence image
+                binary,         // Output: Binary motion mask
+                25,             // Threshold value (motion sesitivity)
+                255,            // Value for detected motion pixels
+                cv::THRESH_BINARY // Binary thresholding
+            );
+
+            // Count motion pixels 
+            int motionPixels = cv::countNonZero(motionMask);
+
+            // If motion exceeds safe threshold -> EMERGENCY STOP
+            if(motionPixels > 5000)
+            {
+                emergencyStop = true;
+            }
+        }
+        else
+        {
+            // First frmae cannot be used for motion detct
         }
 
     }
