@@ -241,18 +241,7 @@ int main()
             break; // ESC KEY
         }
 
-
-
-
-        
-
-
-    
-    
-    
     }
-
-
 
     return (EXIT_SUCCESS);
 }
