@@ -22241,3 +22241,8 @@ To github.com:Omkar7637/OpenCV.git
  create mode 100755 CPP/15-ROI_to_map
 To github.com:Omkar7637/OpenCV.git
    b7e460d..cb02a8a  main -> main
+[main 9470947] Auto update: 2026-01-07 15:10:01
+ 3 files changed, 6 insertions(+), 1 deletion(-)
+ delete mode 100755 CPP/15-ROI_to_map
+To github.com:Omkar7637/OpenCV.git
+   cb02a8a..9470947  main -> main
