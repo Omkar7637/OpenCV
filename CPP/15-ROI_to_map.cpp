@@ -90,9 +90,48 @@ int main()
                 - Reduce data from 3 channels to 1
                 - Simplify further processing
         */
+
         cv::cvtColor(
             frame, 
-        )
+            gray,
+            cv::COLOR_BGR2GRAY
+        );
+
+        /*
+            Apply guassian blur
+            Purpose:
+                - Reduce camera noise
+                - Improve thresholding stability
+        */
+       
+        cv::GaussianBlur(
+            gray,
+            gray, 
+            cv::Size(5, 5), 
+            0
+        );
+
+        /*
+            Convert grayscale image to binary using OTSU
+            Purpose:    
+                - Automatically separate forground and background
+        */
+
+        cv::threshold(
+            gray, 
+            binary, 
+            0, 
+            255, 
+            cv::THRESH_BINARY | cv::THRESH_OTSU
+        );
+
+        // ========== ROI SECTION ==========
+        // Image dimentions
+        int h = binary.rows;
+        int w = binary.cols;
+
+        // Define ROI as the bottom hal
+
 
         //// END OF WHILE LOOP ////
     }
