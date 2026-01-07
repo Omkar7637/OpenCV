@@ -151,7 +151,24 @@ int main()
             )
         );
 
-        if
+        if(roi.empty()) continue; 
+
+        // ========== GRID CELL SIZE CALCULATION ==========
+        // Convert ROI into MAP_ROWS x MAP_COLS grid
+        int cellwidth = roi.cols / MAP_COLS;
+        int cellHeight = roi.rows / MAP_ROWS;
+        
+        // ========== OCCUPANCY MAP UPDATE ==========
+        // Loop over each cell in the occupancy grid
+        for(int r = 0; r < MAP_ROWS; r++)
+        {
+            for (int c = 0; c < MAP_COLS; c++)
+            {
+                // Compute pixel coordinates of the cell
+                int x = c * cellwidth;
+                int y = cell
+            }
+        }
 
 
         //// END OF WHILE LOOP ////
