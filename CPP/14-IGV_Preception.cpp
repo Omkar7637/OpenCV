@@ -76,10 +76,8 @@ int main()
     while(true)
     {
         // Capture New Frame
-        cap >>frame;
-
         // Check if the frame is empty
-        if(frame.empty())
+        if(!cap.read(frame) || frame.empty())
         {
             std::cerr << "ERROR:Empty Frame recived!" << std::endl;
             return(EXIT_FAILURE); 
