@@ -56,7 +56,11 @@ int main()
     if(!cap.isOpened()) // if any element in the pipeline fails, this return false
     {
         std::cout << "========== Camera Not Suported ==========" << std::endl;
+        return(EXIT_FAILURE); // Exit program safely
     }
+
+    // ========== 
+    
 
 
 
