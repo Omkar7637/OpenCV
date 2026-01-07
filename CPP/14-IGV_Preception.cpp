@@ -269,7 +269,7 @@ int main()
                 cv::FONT_HERSHEY_SIMPLEX,   // Font
                 1,                          // Font Size
                 cv::Scalar(0, 0, 255),      // RED Color (BGR)
-                2                           // Thickness
+                20                           // Thickness
             );
         }
         else
@@ -282,7 +282,7 @@ int main()
                 cv::FONT_HERSHEY_SIMPLEX,   // FONT
                 1,                          // Font Size
                 cv::Scalar(0, 255, 0),      // Green Color
-                2                           // Thickness
+                20                           // Thickness
             );
         }
 
