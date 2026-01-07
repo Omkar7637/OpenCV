@@ -14,7 +14,16 @@
 *   Created On  : 06-01-2026
 *   Last updated: 06-01-2026
 *   Platform    : NVIDIA Jetson Nano Super 8GB
-*   OS          : C++   
+*   OS          : Ubuntu (JetPack)  
+*   Language    : C++
+*   Framework   : OpenCV 4.x, GStreamer
+*
+*   Version     : 1.0.0
+*
+*   Notes       :
+*       - Uses nvarguscamerasrc for CSI camera access.
+*       - Requires OpenCV built with GStreamer support.
+*       - Designed for embedded vision applications.
 
 ************************************************************************************************************/
 
