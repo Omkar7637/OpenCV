@@ -27,3 +27,6 @@
  *      - Requires OpenCV built with GStreamer support.
  *      - Designed for embedded vision applications.
 *****************************************************************************************/
+
+// ============================== HEADER FILES ==============================
+#include<
