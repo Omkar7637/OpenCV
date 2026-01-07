@@ -267,9 +267,9 @@ int main()
                 "EMERGENCY STOP",           // Text
                 cv::Point(50, 50),          // Positions
                 cv::FONT_HERSHEY_SIMPLEX,   // Font
-                1,                          // Font Size
+                3,                          // Font Size
                 cv::Scalar(0, 0, 255),      // RED Color (BGR)
-                20                           // Thickness
+                2                           // Thickness
             );
         }
         else
@@ -280,9 +280,9 @@ int main()
                 direction,                  // Text
                 cv::Point(50, 50),          // Position
                 cv::FONT_HERSHEY_SIMPLEX,   // FONT
-                1,                          // Font Size
+                3,                          // Font Size
                 cv::Scalar(0, 255, 0),      // Green Color
-                20                           // Thickness
+                2                           // Thickness
             );
         }
 
