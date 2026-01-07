@@ -186,7 +186,25 @@ int main()
             // Define ROI as botton half of the image
             // Reason:
             //      - Path exists near robot, not in sky/background
+            roi = binary(
+                cv::Rect(
+                    0,          // Start from left edge
+                    h/2,        // Start from middle of the image vertically
+                    w,          // Use full image width
+                    h/2         // Bottom half of the image
+                )
+            );
+
+            // Divide ROI into three equal vertical zones
+            int zoneWidth = w / 3;
+
+            // These zones represents possible navigation directions:
+            // [ LEFT ZONE ] [ CENTER ZONE ] [ RIGHT ZONE ]
+            // The Robot decides direction based on where the path
+            // (White pixels) is strongest.
             
+
+
         }
 
 
