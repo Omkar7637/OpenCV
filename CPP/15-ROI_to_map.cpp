@@ -70,5 +70,30 @@ int main()
     }
 
     // ==================== IMAGE MATRICES (PROCESSING STAGES) ====================
-    cv::Mat frame; // Origianl
+    cv::Mat frame;  // Original camera frame (BGR)
+    cv::Mat gray;   // Grayscale image
+    cv::Mat binary; // Binary image
+    cv::Mat roi;    // Region of Interest (bottom half)
+
+    // ==================== MAIN LOOP ====================
+    while(true)
+    {
+        if(!cap.read(frame) || frame.empty())
+        {
+            std::cerr << "ERROR:Empty Frame recived!" << std::endl;
+            continue;
+        }
+
+        /* ========== PREPROCESSING ==========
+            Convert BGR image to grayscale
+            Purpose: 
+                - Reduce data from 3 channels to 1
+                - Simplify further processing
+        */
+        cv::cvtColor(
+            frame, 
+        )
+
+        //// END OF WHILE LOOP ////
+    }
 } 
