@@ -46,8 +46,17 @@ int main()
         "nvvidcon !" // Uses Jetson hardware | Much faster for video converter
         "video/x-raw, format=BGRx !" //  BGR + usused alpha channel required | Video Converter work efficently with BGRx
         "videoconvert !" // CPU-Based color format converter | Convert BGRx -> BGR | OpenCV expects BGR format
-        "video/x-raw"
-    )
+        "video/x-raw, format=BGR !" // Final format passed to OpenCV | 3-channel BGR image (CV_8UC3)
+        "appsink ", // sink element that allows application (OpenCV) to read frames | withour appsink, OpenCV cannot access the videostream
+
+        // BACKEND SELECTION
+        cv::CAP_GSTREAMER // Force OpenCV to Use the GStreamer backend | mandatory when passing a GStreamer pipline string
+    );
+
+    if(!cap.isOpened()) // if any element in the pipeline fails, this return false
+    {
+        std::cout << "========== Camera Not Suported ==========" << std::endl;
+    }
 
 
 
