@@ -29,4 +29,22 @@
 *****************************************************************************************/
 
 // ============================== HEADER FILES ==============================
-#include<
+#include<opencv2/opencv.hpp>
+#include<iostream>
+#include<cstdlib>
+
+// ========================== ENTRY POINT FUNCTION ==========================
+int main()
+{
+    // ==================== CAMERA INTIALIZATION ====================
+    
+    std::cout << std::endl << "========== Camera Intitializations ==========" << std::endl;
+    cv::VideoCapture cap(
+        "nvarguscamerasrc !" // Direct interface to nividia hardware (Mostly auto setting)
+        "video/x-raw(memory:NVMM)"
+    )
+
+
+
+    return(EXIT_SUCCESS);
+}
