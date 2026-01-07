@@ -40,14 +40,14 @@ int main()
     
     std::cout << std::endl << "========== Camera Intitializations ==========" << std::endl;
     cv::VideoCapture cap(
-        "nvarguscamerasrc !" // Direct interface to nividia hardware (Mostly auto setting)
-        "video/x-raw(memory:NVMM), " // NVIDIA Multimedia memory
+        "nvarguscamerasrc !"                // Direct interface to nividia hardware (Mostly auto setting)
+        "video/x-raw(memory:NVMM), "        // NVIDIA Multimedia memory
         "width=1280, height=720, frame=60/1 !"
-        "nvvidcon !" // Uses Jetson hardware | Much faster for video converter
-        "video/x-raw, format=BGRx !" //  BGR + usused alpha channel required | Video Converter work efficently with BGRx
-        "videoconvert !" // CPU-Based color format converter | Convert BGRx -> BGR | OpenCV expects BGR format
-        "video/x-raw, format=BGR !" // Final format passed to OpenCV | 3-channel BGR image (CV_8UC3)
-        "appsink ", // sink element that allows application (OpenCV) to read frames | withour appsink, OpenCV cannot access the videostream
+        "nvvidcon !"                        // Uses Jetson hardware | Much faster for video converter
+        "video/x-raw, format=BGRx !"        //  BGR + usused alpha channel required | Video Converter work efficently with BGRx
+        "videoconvert !"                    // CPU-Based color format converter | Convert BGRx -> BGR | OpenCV expects BGR format
+        "video/x-raw, format=BGR !"         // Final format passed to OpenCV | 3-channel BGR image (CV_8UC3)
+        "appsink ",                         // sink element that allows application (OpenCV) to read frames | withour appsink, OpenCV cannot access the videostream
 
         // BACKEND SELECTION
         cv::CAP_GSTREAMER // Force OpenCV to Use the GStreamer backend | mandatory when passing a GStreamer pipline string
@@ -59,7 +59,17 @@ int main()
         return(EXIT_FAILURE); // Exit program safely
     }
 
-    // ========== IMAGE MATRICES (PIPLINE STAGES) ========== 
+    // ========== IMAGE MATRICES (PIPLINE STAGES) ==========
+    cv::Mat frame;          // Original BGR frame from camera
+    cv::Mat gray;           // Graysacle version of frame 
+    cv::Mat prevGray;       // Privous grayscale frame (for motion detection)
+
+    cv::Mat binary;         // Binary image for path detction
+    cv::Mat roi;            // Region of interest for path detection
+    cv::Mat diff;           // Absolute difference between frames
+    cv::Mat motionMask;     // Binary mask highlighting motion areas
+    
+    // Fla
     
 
 
