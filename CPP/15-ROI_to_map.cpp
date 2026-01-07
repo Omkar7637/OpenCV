@@ -36,7 +36,7 @@
 // ========== OCCUPANCY MAP CONFIGRATION ==========
 // Number of rows and columns in the occupancy grid
 // This defines the resolution of the map
-const int MAP_ROWS = 10;
+const int MAP_ROWS = 20;
 const int MAP_COLS = 20;
 
 // Occupancy map storage
