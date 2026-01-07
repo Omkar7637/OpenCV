@@ -36,7 +36,7 @@
 // ========================== ENTRY POINT FUNCTION ==========================
 int main()
 {
-    // ==================== CAMERA INTIALIZATION ====================
+    // ===================== CAMERA INTIALIZATION ====================
     
     std::cout << std::endl << "========== Camera Intitializations ==========" << std::endl;
     cv::VideoCapture cap(
@@ -69,7 +69,32 @@ int main()
     cv::Mat diff;           // Absolute difference between frames
     cv::Mat motionMask;     // Binary mask highlighting motion areas
     
-    // Fla
+    // Flag to handle the first frame safely
+    bool firstFrame = true;
+
+    // ========== MAIN PROCESSING LOOP ==========
+    while(true)
+    {
+        // Capture New Frame
+        cap >>frame;
+
+        // Check if the frame is empty
+        if(frame.empty())
+        {
+            std::cerr << "ERROR:Empty Frame recived!" << std::endl;
+            return(EXIT_FAILURE); 
+        }
+
+        // STEP 1. PREPROCESSING
+        //      - Convert to grayscale
+        //      - Apply Gaussian blur to reduce noise
+
+        // Convert BGR image to single-channel grayscale
+        cv::cvtColor(
+            frame,          // Input
+        )
+    }
+
     
 
 
