@@ -29,4 +29,25 @@
 ******************************************************************************************/
 
 // ============================== HEADER FILES ==============================
-#include<opencv
+#include<opencv2/opencv.hpp>
+#include<iostream>
+#include<cstdlib>
+
+// ========== OCCUPANCY MAP CONFIGRATION ==========
+// Number of rows and columns in the occupancy grid
+// This defines the resolution of the map
+const int MAP_ROWS = 10;
+const int MAP_COLS = 20;
+
+// Occupancy map storage
+// 0 = unkown
+// 1 = free space
+// 2 = obstacle
+int occupancyMap[MAP_ROWS][MAP_COLS] = {0};
+
+// =========================== ENTRY POINT FUNTION ==========================
+int main()
+{
+    // ==================== CAMERA INTIALIZATION ====================
+    std::cout << std::endl << "========== CAMERA INTIALIZATIONS ==========" 
+} 
