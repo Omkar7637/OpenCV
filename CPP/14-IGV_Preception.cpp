@@ -149,8 +149,33 @@ int main()
         }
         else
         {
-            // First frmae cannot be used for motion detct
+            // First frmae cannot be used for motion detection 
+            firstFrame = false;
         }
+
+        // Store current frame as previous for next iteration
+        // clone() is mandatory to avoid memory overwrite
+        prevGray = gray.clone();
+
+        /******************************************************
+         * STEP 3. PATH DETECTION (ONLY IF SAFE)
+         *      - Convert image to binary using OTSU
+         *      - Extract bottom-half ROI
+         *      - Divide ROI into 3 zones
+         *      - Decide movement direction
+        ******************************************************/
+
+        std::string direction = "STOP";
+
+        if(!emergencyStop)
+        {
+            // Apply OTSU thresholding for automatic segmentation
+            cv::threshold(
+                gray,           // Input: Grayscale Image
+                binary,         // 
+            )
+        }
+
 
     }
 
