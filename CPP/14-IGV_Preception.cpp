@@ -273,17 +273,31 @@ int main()
             // Dispay navigation decision in GREEN
             cv::putText(
                 frame,                      // Image to draw on
-                
-            )
+                direction,                  // Text
+                cv::Point(50, 50),          // Position
+                cv::FONT_HERSHEY_SIMPLEX,   // FONT
+                1,                          // Font Size
+                cv::Scalar(0, 255, 0),      // Green Color
+                2                           // Thickness
+            );
         }
-        
 
+        // Shoe Live Camera feed
+        cv::imshow("IGV Camera", frame);
 
+        // show region used for path decision
+        cv::imshow("ROI", roi);
+
+        // Show motion detection mask
+        cv::imshow("Morion Mask", motionMask);
+
+        // EXIT CONDITION
+
+        if(cv::waitKey(1) == 27)
+        {
+            break; // ESC Key
+        }
     }
-
     
-
-
-
     return(EXIT_SUCCESS);
 }
