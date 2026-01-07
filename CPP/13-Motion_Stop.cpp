@@ -10,6 +10,11 @@
  *                      - Frame differencing
  *                      - Binary thresholding   
  *                      - Motion pixel counting
+ *  Author      : Omkar Ankush Kashid
+ *  Created On  : 06-01-1026
+ *  Last updated: 07-01-2026
+ *  Platform    : NVIDIA Jetson Nanp Super 8GB
+ *  OS          : C++
  * 
 *************************************************************************************/
 
