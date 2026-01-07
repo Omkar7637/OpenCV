@@ -86,9 +86,9 @@ int main()
         }
 
         /******************************************************
-        * STEP 1. PREPROCESSING
-        *     - Convert to grayscale
-        *      - Apply Gaussian blur to reduce noise
+         * STEP 1. PREPROCESSING
+         *     - Convert to grayscale
+         *      - Apply Gaussian blur to reduce noise
         *******************************************************/
 
         // Convert BGR image to single-channel grayscale
@@ -107,7 +107,32 @@ int main()
             gray,               // Input: grayscale image
             gray,               // Output: Same image overwritten (in-place)
             cv::Size(5, 5),     // 5x5 Guassian kernal
-        )
+            0                   // Auto calculate sigma
+        );
+
+        /******************************************************
+         * STEP 2. EMERGENCY STOP (MOTION DETECTION)
+         *      - Detect sudden scene changes
+         *      - Trigger emergency stop if motion is large
+        ******************************************************/
+
+        bool emergencyStop = false;
+
+        if(!firstFrame)
+        {
+            // Compute absolute pixel-wise difference
+            // Highlight moving regions between frames
+            cv::absdiff(
+                gray,           // Current grayscale frame
+                prevGray,       // Previous grayscale frame 
+                diff            // Output image showing motion areas
+            );
+
+            // Threshold differnce image to create motion mask
+            // diff > 25 -> motion pixel (255)
+            cv::
+        }
+
     }
 
     
