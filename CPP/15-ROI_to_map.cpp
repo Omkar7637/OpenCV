@@ -130,7 +130,28 @@ int main()
         int h = binary.rows;
         int w = binary.cols;
 
-        // Define ROI as the bottom hal
+        if(binary.empty()) continue;
+
+        /* 
+            Define ROI as the bottom Image
+            Resson:
+                - Obstacles and free path are close to the robot
+                - Upper half usually contains irrelevent information
+        */
+
+        int roiStartY = h * 0.3; // Start at 30% image
+        int roiHeight = h * 0.7; // Cover 70% of image
+
+        roi = binary(
+            cv::Rect(
+                0,          
+                roiStartY,
+                w, 
+                roiHeight  
+            )
+        );
+
+        if
 
 
         //// END OF WHILE LOOP ////
