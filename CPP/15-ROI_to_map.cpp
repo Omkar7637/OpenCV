@@ -166,9 +166,33 @@ int main()
             {
                 // Compute pixel coordinates of the cell
                 int x = c * cellwidth;
-                int y = cell
+                int y = r * cellHeight;
+
+                // Extract cell ROI
+                cv::Rect cellRect(x, y, cellwidth, cellHeight);
+                cv::Mat cell = roi(cellRect);
+
+                // Count number of white pixels int he cell
+                int whitePixels = cv::countNonZero(cell);
+
+                // Total number of pixels in the cell
+                int totalPixels = cell.rows * cell.cols;
+
+                // Classification logic:
+                // If majority of pixels are white -> free space
+                // otherwise -> obstacle
+                if(whitePixels > totalPixels / 2)
+                {
+                    occupancyMap[r][c] = 1; // free
+                }
+                else
+                {
+                    occupancyMap[r][c] = 2; // obstacle
+                }
             }
         }
+
+        // ========== 
 
 
         //// END OF WHILE LOOP ////
