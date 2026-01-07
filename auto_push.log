@@ -22115,3 +22115,8 @@ To github.com:Omkar7637/OpenCV.git
  create mode 100755 CPP/14-IGV_Preception
 To github.com:Omkar7637/OpenCV.git
    d825f7f..8d7519b  main -> main
+[main 80574f5] Auto update: 2026-01-07 12:40:01
+ 3 files changed, 11 insertions(+), 2 deletions(-)
+ delete mode 100755 CPP/14-IGV_Preception
+To github.com:Omkar7637/OpenCV.git
+   8d7519b..80574f5  main -> main
