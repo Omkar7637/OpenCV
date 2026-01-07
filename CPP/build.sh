@@ -6,6 +6,8 @@
 # Example: ./build.sh 04-Blur_demo
 # ==============================
 
+clear
+
 if [ $# -ne 1 ]; then
     echo "Usage: ./build.sh <filename_without_extension>"
     exit 1
