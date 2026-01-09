@@ -167,7 +167,25 @@ int main()
                 );
 
                 // Count number of whte pixels (forground)
-                int white
+                int whitePixels = cv::countNonZero(cell);
+
+                // Total number of pixels in this cell
+                int totalPixels = cell.rows * cell.cols;
+
+                // observation from current frame:
+                //      - Majority white -> FREE
+                //      - Otherwise -> OBSTACLE
+                int observedState = (whitePixels > totalPixels / 2) 1 : 2;
+
+                /*******************************************
+                 * PERSISTENT UPDATE RULES
+                 * 
+                 * 1. If cell is UNKONWN -> accept observation
+                 * 2. If cell was FREE but now OBSTACLE -> Update
+                 * 3. If cell already OBSTACLE -> keep it
+                 * 
+                 * 
+                ********************************************/
             }
         }
     }
