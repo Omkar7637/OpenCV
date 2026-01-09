@@ -53,15 +53,17 @@ int main()
 {
     // ==================== CAMERA INITIALIZATIONS ====================
     // Open default camera (index 0)
+    std::cout << std::endl << "========== CAMERA INTIALIZATIONS ==========" << std::endl;
+    
     cv::VideoCapture cap(
-        "cvarguscamerasrc !"
+        "nvarguscamerasrc !"
         "video/x-raw(memory:NVMM), "
         "width=1280, height=720, frame=60/1 !"
         "nvvidconv !"
         "video/x-raw, format=BGRx !"
         "videoconvert !"
         "video/x-raw, format=BGR !"
-        "appsink", 
+        "appsink",
         cv::CAP_GSTREAMER
     );
 
