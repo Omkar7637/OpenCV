@@ -204,7 +204,7 @@ int main()
         // ========== VISIALIZATION OF OCCUPANCY MAP ==========
         // Create visualization image 
         // Each grid cell is drawn as 30x30 square
-        cv::Mat mapVis(MAP_ROWS * 30, MAP_COLS, CV_8UC3);
+        cv::Mat mapVis(MAP_ROWS * 30, MAP_COLS * 30, CV_8UC3);
 
         for (int r = 0; r < MAP_ROWS; r++)
         {

@@ -24997,3 +24997,9 @@ To github.com:Omkar7637/OpenCV.git
  create mode 100755 CPP/16-Persistent_map
 To github.com:Omkar7637/OpenCV.git
    66fc04a6..9e809142  main -> main
+[main 34e3cf6a] Auto update: 2026-01-09 14:45:01
+ 4 files changed, 10 insertions(+), 2 deletions(-)
+ delete mode 100755 CPP/15-ROI_to_map
+ delete mode 100755 CPP/16-Persistent_map
+To github.com:Omkar7637/OpenCV.git
+   9e809142..34e3cf6a  main -> main
