@@ -48,3 +48,26 @@ const int MAP_COLS = 20;
 // Presistent occupancy grid
 // Initialized to unkonwn (0)
 int occupancyMap[MAP_ROWS][MAP_COLS] = {0};
+
+int main()
+{
+    // ==================== CAMERA INITIALIZATIONS ====================
+    // Open default camera (index 0)
+    cv::VideoCapture cap(
+        "cvarguscamerasrc !"
+        "video/x-raw(memory:NVMM), "
+        "width=1280, height=720, frame=60/1 !"
+        "nvvidconv !"
+        "video/x-raw, format=BGRx !"
+        "videoconvert !"
+        "video/x-raw, format=BGR !"
+        "appsink", 
+        cv::CAP_GSTREAMER
+    );
+
+    if(!cap.isOpened())
+    {
+        std::cout << "========== CAMERA NOT SOPPORTED =========="
+    }
+    return(EXIT_SUCCESS);
+}
