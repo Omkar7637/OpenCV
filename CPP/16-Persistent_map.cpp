@@ -80,13 +80,38 @@ int main()
     // ==================== MAIN PROCESSING LOOP ====================
     while(true)
     {
-        // Capture frame
+        // Capture frame | Stope execution from the camera
         if(!cap.read(frame) || frame.empty())
         {
             std::cerr << "ERROR:Empty Frame Recived!" <<std::endl;
         }
 
-        // 
+        // ========== PREPROCESSING ==========
+        // Convert BGR image to grayscale
+        // Reduce data size and simplifies processing
+        cv::cvtColor(
+            frame, 
+            gray, 
+            cv::COLOR_BGR2GRAY
+        );
+
+        // Apply Gussian blur
+        // Purpuise:
+        //      - Reduce sensor noise
+        //      - Stablize thresholding
+        cv::GaussianBlur(
+            gray, 
+            gray, 
+            cv::Size(5, 5), 
+            0
+        );
+
+        // Apply OTSU thresholding
+        // Automatically seperated foreground and bakground
+        cv::threshold(
+            gray, 
+            bin
+        )
     }
     return(EXIT_SUCCESS);
 }
