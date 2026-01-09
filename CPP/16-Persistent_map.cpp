@@ -71,6 +71,22 @@ int main()
         return(EXIT_FAILURE);
     }
 
-    // ==================== IMAGE CONTAINERS
+    // ==================== IMAGE CONTAINERS ====================
+    cv::Mat frame;  // Original BGR camera frame 
+    cv::Mat gray;   // Grayscale image
+    cv::Mat binary; // Binary image after thresholding 
+    cv::Mat roi;    // Bottom-hlaf Region of Interest
+
+    // ==================== MAIN PROCESSING LOOP ====================
+    while(true)
+    {
+        // Capture frame
+        if(!cap.read(frame) || frame.empty())
+        {
+            std::cerr << "ERROR:Empty Frame Recived!" <<std::endl;
+        }
+
+        // 
+    }
     return(EXIT_SUCCESS);
 }
