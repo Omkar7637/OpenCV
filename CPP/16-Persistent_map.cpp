@@ -113,7 +113,7 @@ int main()
         cv::threshold(
             gray,
             binary, 
-            0,
+            50,
             255, 
             cv::THRESH_BINARY | cv::THRESH_OTSU
         );
