@@ -139,7 +139,37 @@ int main()
             )
         );
 
-        if(roi.empty())
+        if(roi.empty()) continue;
+
+        // ========== GRID CELL SIZE COMPUTATION ==========
+        // Each ROI is divided into MAP_ROWS / MAP_COLS cells
+        int cellWidth = roi.cols / MAP_COLS;
+        int cellHeight = roi.rows / MAP_ROWS;
+
+        // ========== UPDATE OCCUPANCY MAP (PERSISTENT LOGIC) ==========
+
+        for(int r = 0; r < MAP_ROWS; r++)
+        {
+            for(int c = 0; c < MAP_COLS; c++)
+            {
+                // Compute top-left pixel of the current cell
+                int x = c * cellWidth;
+                int y = r * cellHeight;
+
+                // Extract the cell as a sub_ROI (Zero-copy)
+                cv::Mat cell = roi(
+                    cv::Rect(
+                        x, 
+                        y, 
+                        cellWidth, 
+                        cellHeight
+                    )
+                );
+
+                // Count number of whte pixels (forground)
+                int white
+            }
+        }
     }
 
     return(EXIT_SUCCESS);
