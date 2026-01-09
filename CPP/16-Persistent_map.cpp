@@ -204,7 +204,17 @@ int main()
         // ========== VISIALIZATION OF OCCUPANCY MAP ==========
         // Create visualization image 
         // Each grid cell is drawn as 30x30 square
-        cv::Mat mapVis(MAP_ROWS * 30, MAP_COLS * 30, CV_8UC3);
+
+        int CELL_SIZE = 40;
+
+        cv::Mat mapVis(
+            MAP_ROWS * CELL_SIZE,
+            MAP_COLS * CELL_SIZE,
+            CV_8UC3
+        );
+
+        mapVis.setTo(cv::Scalar(50, 50, 50));
+        // cv::Mat mapVis(MAP_ROWS * 30, MAP_COLS * 30, CV_8UC3);
 
         for (int r = 0; r < MAP_ROWS; r++)
         {
@@ -229,13 +239,23 @@ int main()
                     color = cv::Scalar(0, 0, 0);
                 }
 
-                // Draw Filled rectangle for the grid cell
-                cv::rectangle(
-                    mapVis, 
-                    cv::Rect(c * 30, r * 30, 30, 30),
-                    color, 
-                    cv::FILLED
+                cv::Rect cell(
+                    c * CELL_SIZE,
+                    r * CELL_SIZE,
+                    CELL_SIZE,
+                    CELL_SIZE
                 );
+
+                cv::rectangle(mapVis, cell, color, cv::FILLED);
+                cv::rectangle(mapVis, cell, cv::Scalar(80,80,80), 1);
+
+                // Draw Filled rectangle for the grid cell
+                // cv::rectangle(
+                //     mapVis, 
+                //     cv::Rect(c * 30, r * 30, 30, 30),
+                //     color, 
+                //     cv::FILLED
+                // );
             }
         }
 
