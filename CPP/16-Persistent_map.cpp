@@ -46,3 +46,5 @@ const int MAP_ROWS = 10;
 const int MAP_COLS = 20; 
 
 // Presistent occupancy grid
+// Initialized to unkonwn (0)
+int occupancyMap[MAP_ROWS][MAP_COLS] = {0};
