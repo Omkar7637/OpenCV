@@ -193,7 +193,7 @@ int main()
                 {
                     occupancyMap[r][c] = observedState;
                 }
-                else if(occupancyMap[r][c] == 1 && occupancyMap[r][c] == 2)
+                else if(occupancyMap[r][c] == 1 && observedState == 2)
                 {
                     occupancyMap[r][c] = 2;
                 }
