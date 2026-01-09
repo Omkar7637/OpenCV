@@ -227,11 +227,23 @@ int main()
                     color = cv::Scalar(0, 0, 0);
                 }
 
-                
+                // Draw Filled rectangle for the grid cell
+                cv::rectangle(
+                    mapVis, 
+                    cv::Rect(c * 30, r * 30, 30, 30),
+                    color, 
+                    cv::FILLED
+                );
             }
         }
 
+        // DISPLAY WINDOWS
+        cv::imshow("Camera", frame);    // Original camera feed
+        cv::imshow("ROI", roi);         // Processed region
+        cv::imshow("Persistent Map", mapVis); // Occupancy grid
 
+        // EXIT CONDITION
+        if(cv::waitKey(1) == 27) break;// ESC key
     }
 
     return(EXIT_SUCCESS);
