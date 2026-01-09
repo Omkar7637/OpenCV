@@ -199,7 +199,39 @@ int main()
             }
         }
 
-        
+        // ========== VISIALIZATION OF OCCUPANCY MAP ==========
+        // Create visualization image 
+        // Each grid cell is drawn as 30x30 square
+        cv::Mat mapVis(MAP_ROWS * 30, MAP_COLS, CV_8UC3);
+
+        for (int r = 0; r < MAP_ROWS; r++)
+        {
+            for (int c = 0; c < MAP_COLS; c++)
+            {
+                cv::Scalar color;
+
+                // Color Coding
+                // - Gray -> unkonwn
+                // - White -> Free space
+                // - Black -> Obstacle
+                if(occupancyMap[r][c] == 0)
+                {
+                    color = cv::Scalar(128, 128, 128);
+                }
+                else if(occupancyMap[r][c] == 1)
+                {
+                    color = cv::Scalar(255, 255, 255);
+                }
+                else
+                {
+                    color = cv::Scalar(0, 0, 0);
+                }
+
+                
+            }
+        }
+
+
     }
 
     return(EXIT_SUCCESS);
