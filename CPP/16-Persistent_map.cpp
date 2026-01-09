@@ -117,7 +117,30 @@ int main()
         );
 
         // ========== ROI SELECTION (BOTTOM HALF) ==========
-        
+        // Image dimentions 
+        int h = binary.rows;
+        int w = binary.cols;
+
+        if(binary.empty()) continue;
+
+        // Use only the bottom hlaf of the image 
+        // Reson:
+        //  - Obstacle re;vent to navigation are near the rorbot
+        //  - Upper half contains irrelevant beackground
+        int roiStartY = h * 0.3; // Start at 30% image
+        int roiHeight = h * 0.7; // Cover 70% of image
+
+        roi = binary(
+            cv::Rect(
+                0, 
+                roiStartY, 
+                w, 
+                roiHeight
+            )
+        );
+
+        if(roi.empty())
     }
+
     return(EXIT_SUCCESS);
 }
