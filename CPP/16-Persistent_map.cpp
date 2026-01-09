@@ -175,19 +175,31 @@ int main()
                 // observation from current frame:
                 //      - Majority white -> FREE
                 //      - Otherwise -> OBSTACLE
-                int observedState = (whitePixels > totalPixels / 2) 1 : 2;
+                int observedState = (whitePixels > totalPixels / 2) ? 1 : 2;
 
-                /*******************************************
+                /************************************************
                  * PERSISTENT UPDATE RULES
                  * 
                  * 1. If cell is UNKONWN -> accept observation
                  * 2. If cell was FREE but now OBSTACLE -> Update
                  * 3. If cell already OBSTACLE -> keep it
                  * 
-                 * 
-                ********************************************/
+                 * This ensures obstacles persist across frames
+                *************************************************/
+               
+                if(occupancyMap[r][c] == 0)
+                {
+                    occupancyMap[r][c] = observedState;
+                }
+                else if(occupancyMap[r][c] == 1 && occupancyMap[r][c] == 2)
+                {
+                    occupancyMap[r][c] = 2;
+                }
+                // If already obstacle, do nothing
             }
         }
+
+        
     }
 
     return(EXIT_SUCCESS);
