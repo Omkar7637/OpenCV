@@ -23,4 +23,26 @@
  *      - 0 : Unknown (never observed)
  *      - 1 : Free space
  *      - 2 : Obstacle (Persistent once detected)
+ * 
+ * Application  :
+ *      - IGV / AGV navigation
+ *      - Local obstacle mapping
+ *      - Path planning input (A*, Dijkstra, etc.)
+ * 
+ * Notes        :
+ *      - Uses nvarguscamerasrc for CSI
+ *      - Requires OpenCV built with GStreamer support
+ *      - Designed for embedded vision applications.  
 *****************************************************************************************/
+
+// ============================== HEADER FILES ==============================
+#include<opencv2/opencv.hpp>
+#include<iostream>
+#include<cstdlib>
+
+// ========== OCCUPANCY GRID CONFIGRATION ==========
+// Grid resolution (map size)
+const int MAP_ROWS = 10;
+const int MAP_COLS = 20; 
+
+// Presistent occupancy grid
