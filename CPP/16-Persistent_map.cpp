@@ -67,7 +67,10 @@ int main()
 
     if(!cap.isOpened())
     {
-        std::cout << "========== CAMERA NOT SOPPORTED =========="
+        std::cout << "========== CAMERA NOT SOPPORTED ==========" << std::endl;
+        return(EXIT_FAILURE);
     }
+
+    // ==================== IMAGE CONTAINERS
     return(EXIT_SUCCESS);
 }
