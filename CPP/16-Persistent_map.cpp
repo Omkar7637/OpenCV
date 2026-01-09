@@ -109,9 +109,15 @@ int main()
         // Apply OTSU thresholding
         // Automatically seperated foreground and bakground
         cv::threshold(
-            gray, 
-            bin
-        )
+            gray,
+            binary, 
+            0,
+            255, 
+            cv::THRESH_BINARY | cv::THRESH_OTSU
+        );
+
+        // ========== ROI SELECTION (BOTTOM HALF) ==========
+        
     }
     return(EXIT_SUCCESS);
 }
