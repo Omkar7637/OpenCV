@@ -41308,3 +41308,10 @@ To github.com:Omkar7637/OpenCV.git
  1 file changed, 4 insertions(+)
 To github.com:Omkar7637/OpenCV.git
    caf87dc..c39441f  main -> main
+[main 9a0e3dc] Auto update: 2026-01-22 04:50:01
+ 1 file changed, 4 insertions(+)
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
