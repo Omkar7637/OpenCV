@@ -49068,3 +49068,10 @@ and the repository exists.
  1 file changed, 7 insertions(+)
 To github.com:Omkar7637/OpenCV.git
    a1be64f..5990ff2  main -> main
+[main ed5c7ae] Auto update: 2026-01-28 13:55:01
+ 1 file changed, 4 insertions(+)
+ssh: Could not resolve hostname github.com: Temporary failure in name resolution
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
