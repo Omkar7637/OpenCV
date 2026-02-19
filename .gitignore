@@ -32,3 +32,9 @@ Thumbs.db
 # ===== Swap / temp =====
 *.swp
 *.tmp
+*.log
+build/
+CMakeFiles/
+*.o
+*.so
+.cache/
