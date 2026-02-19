@@ -1,0 +1,34 @@
+# ===== Build artifacts =====
+*.o
+*.out
+*.exe
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+
+# ===== Large / binary files =====
+*.zip
+*.tar
+*.tar.gz
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+
+# ===== Editors / IDEs =====
+.vscode/
+.idea/
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+
+# ===== Swap / temp =====
+*.swp
+*.tmp
