@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# ================================
-
-# SAFE Auto Git Commit & Push Script
-
-# Self-healing + Lock protected
-
-# ================================
-
 REPO="/home/omkar/Desktop/OpenCV"
 LOCKFILE="/tmp/opencv_git.lock"
 
@@ -28,49 +20,35 @@ touch "$LOCKFILE"
 git fsck --no-progress > /dev/null 2>&1
 if [ $? -ne 0 ]; then
 echo "[$TIMESTAMP] Git repo unhealthy. Attempting repair..."
-
-```
 git gc --prune=now > /dev/null 2>&1
 git repack -a -d > /dev/null 2>&1
-```
-
 fi
 
-# ---------- Heartbeat (keep repo alive) ----------
+# ---------- Heartbeat commit ----------
 
 echo "Last alive: $TIMESTAMP" > .heartbeat
-
 git add .heartbeat
 git commit -m "Heartbeat: $TIMESTAMP" > /dev/null 2>&1
 
+# ---------- Real source changes ----------
 
-
-# ---------- Detect real file changes ----------
-
-CHANGES=$(git status --porcelain | grep -vE "(.o|.so|build/|CMakeFiles/|.log|.cache)")
+CHANGES=$(git status --porcelain | grep -vE "(.o|.so|build/|CMakeFiles/|.log|.cache|.heartbeat)")
 
 if [[ -n "$CHANGES" ]]; then
-echo "[$TIMESTAMP] Changes detected"
-
-```
+echo "[$TIMESTAMP] Source changes detected"
 git add -A
 git commit -m "Auto update: $TIMESTAMP" > /dev/null 2>&1
-
-# Pull before push (prevents remote conflicts)
-git pull --rebase origin main > /dev/null 2>&1
-
-git push origin main
-
-echo "[$TIMESTAMP] Push completed"
-```
-
-else
-echo "[$TIMESTAMP] No source changes"
 fi
 
-# ---------- Periodic cleanup ----------
+# ---------- Always sync with GitHub ----------
+
+git pull --rebase origin main > /dev/null 2>&1
+git push origin main
+
+echo "[$TIMESTAMP] Repository synced"
+
+# ---------- Cleanup ----------
 
 git gc --auto > /dev/null 2>&1
-
 rm -f "$LOCKFILE"
 
